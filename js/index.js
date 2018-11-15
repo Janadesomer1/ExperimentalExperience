@@ -29,7 +29,7 @@ var cube= new THREE.Mesh(geometry, material);
 scene.add(cube);
 
 // camera naar achter zetten om te kunnen kijken op de figuur
-camera.position.z = 3;
+camera.position.z = 5;
 
 
 
@@ -38,6 +38,7 @@ camera.position.z = 3;
 
 // logica
 var update = function() {
+    //ronddraaien van de kubus
     cube.rotation.x += .01;
     cube.rotation.y += .005;
 };
