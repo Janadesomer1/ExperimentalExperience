@@ -258,3 +258,5 @@ var DecibelMeter = ( function ( window, navigator, document, undefined ) {
 	};			
 	
 })( window, navigator, document );
+
+//export default DecibelMeter;

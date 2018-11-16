@@ -1,5 +1,6 @@
  //Declare three.js variables
  var camera, scene, renderer, stars=[];
+ //import DelibelMeter from "./decibel-meter.js"
 	 
  //assign three.js objects to each variable
  function init(){
@@ -50,19 +51,18 @@
  }
 
  function animateStars() { 
-             
-     // loop through each star
+        // loop through each star
      for(var i=0; i<stars.length; i++) {
          
-         star = stars[i]; 
-             
-         // and move it forward dependent on the mouseY position. 
-         star.position.z +=  i/10;
-             
-         // if the particle is too close move it to the back
-         if(star.position.z>1000) star.position.z-=2000; 
-         
-     }
+        star = stars[i]; 
+            
+        // and move it forward dependent on the mouseY position. 
+        star.position.z +=  i/10;
+            
+        // if the particle is too close move it to the back
+        if(star.position.z>1000) star.position.z-=2000; 
+    }
+            
  
  }
 
