@@ -8,14 +8,25 @@
     <title>The Astmanaut</title>
 </head>
 <body>
-     <div id="message">Click mic to toggle listening</div>
-     <div id="meter" class="icon-microphone"><span></span></div>
-  
-    <canvas id="myCanvas"></canvas>
+    <div class="wrapper">
+            <form class="controls">
+                    <div>
+                      <label for="voice">Voice setting</label>
+                      <select id="voice" name="voice">
+                        <option value="off" selected>Off</option>
+                      </select>
+                    </div>
+                    <div>
+                      <a class="mute">Mute</a>
+                    </div>
+                  </form>
+
+                  <canvas id="myCanvas" class="visualiser"></canvas>
+    </div>
+
     <script src="js/three.js"></script>
     <!-- <script src="js/index.js"></script> dit is een testfile voor geometrie, shaders, lighting,... -->
-    <script src="build/decibel-meter.js"></script>
-    <script src="js/volume.js"></script>
     <script src="js/particle.js"></script>
+    <script src="js/audioAnalyser.js"></script>
 </body>
 </html>

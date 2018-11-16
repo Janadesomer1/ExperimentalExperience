@@ -16,10 +16,6 @@ window.addEventListener('resize',function(){
     camera.updateProjectionMatrix();
 })
 
-
-
-
-
 // basic test vorm tekenen
 var geometry = new THREE.CylinderGeometry(1,1,1); // coordinaten zijn x y en z axis (dus in de ruimte)
 
@@ -30,11 +26,6 @@ scene.add(cube);
 
 // camera naar achter zetten om te kunnen kijken op de figuur
 camera.position.z = 5;
-
-
-
-
-
 
 // logica
 var update = function() {

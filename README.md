@@ -15,6 +15,8 @@ Wanneer de kinderen maximaal uitademen zorgt dit voor een betere luchtverversing
 ### Research bronmateriaal
 https://www.flevoziekenhuis.nl/patientenfolders-download/fysiotherapie/3478-fysiotherapie-ademhalingsoefeningen/file
 
+https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode
+
 ## Plan van aanpak
 1) Uitschrijven van een storyboard - Van start naar einde
 2) Nadenken over welke technologieën we zullen gebruiken 
