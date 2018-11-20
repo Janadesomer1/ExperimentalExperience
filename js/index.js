@@ -18,11 +18,17 @@ window.addEventListener('resize',function(){
 
 // basic test vorm tekenen
 var geometry = new THREE.CylinderGeometry(1,1,1); // coordinaten zijn x y en z axis (dus in de ruimte)
+var geometry2 = new THREE.CylinderGeometry(1,5,1); // coordinaten zijn x y en z axis (dus in de ruimte)
 
 // create material and assign color/image texture
 var material = new THREE.MeshBasicMaterial({color: 0xFFFFFF, wireframe: true});
 var cube= new THREE.Mesh(geometry, material);
 scene.add(cube);
+
+//object 2
+var material2 = new THREE.MeshBasicMaterial({color: 0xE9607A, wireframe: true});
+var cube2= new THREE.Mesh(geometry, material2);
+scene.add(cube2);
 
 // camera naar achter zetten om te kunnen kijken op de figuur
 camera.position.z = 5;
