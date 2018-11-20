@@ -20,7 +20,7 @@ window.addEventListener('resize',function(){
 var geometry = new THREE.CylinderGeometry(1,1,1); // coordinaten zijn x y en z axis (dus in de ruimte)
 
 // create material and assign color/image texture
-var material = new THREE.MeshBasicMaterial({color: 0xFFFFFF, wireframe: false});
+var material = new THREE.MeshBasicMaterial({color: 0xFFFFFF, wireframe: true});
 var cube= new THREE.Mesh(geometry, material);
 scene.add(cube);
 
