@@ -1,8 +1,23 @@
  //Aanmaken scene en camera
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+//models aanroepen
+var models = {
+	astronaut: {obj:"js/assets/models/model.json"},
+	environment: {obj:"js/assets/models/environment.json"}
+}
+
+//rondkijken in de scene
+var controls = new THREE.OrbitControls(camera);
+controls.enableDamping = true;
+controls.campingFactor = 0.25;
+controls.enableZoom = true;
+
+
+
 //achtergrond instellen
-scene.background = new THREE.Color(0xff0000);
+scene.background = new THREE.Color(0x0003f2);
 
 var renderer= new THREE.WebGLRenderer({canvas: document.getElementById('myCanvas'), antialias:true});
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -24,6 +39,7 @@ loader.load("js/assets/models/model.json",
 	function ( obj ) {
 		var light = new THREE.PointLight( 0xffffff, 3, 1000 ); 
 		light.position.set( 20, 20, 20 );
+		obj.position.y += -1;
 		obj.rotation.x += -1;
 		scene.add( obj,light );
 	},
@@ -37,24 +53,19 @@ loader.load("js/assets/models/model.json",
 	}
 );
 
-var loader2 = new THREE.ObjectLoader(); 
-loader2.load(
-    "js/assets/models/environment.json",
 
-	function ( environment ) {
-		var light2 = new THREE.AmbientLight( 0xffffff, 3, 1000 ); 
+loader.load(
+    "js/assets/models/environment2.json",
+	function ( obj ) {
+		var light2 = new THREE.pointLight( 0xffffff, 3, 3000 ); 
+		obj.position.y += -1;
+		obj.rotation.x += -1;
 		light2.position.set( 10, 10, 10 );
-		environment.scale.set(0.5,0.5,0.5);
-		environment.position.x = 0;				    //Position (x = right+ left-) 
-        environment.position.y = 0;				    //Position (y = up+, down-)
-		environment.position.z = 0;
-		scene.add( environment,light2 );
+		scene.add( obj,light2 );
 	},
-
 	function ( xhr ) {
 		console.log( (xhr.loaded / xhr.total * 100) + '% van de environment ingeladen' );
 	},
-
 	function ( err ) {
 		console.error( 'astronaut model niet ingeladen' );
 	}
@@ -62,10 +73,24 @@ loader2.load(
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //var light = new THREE.AmbientLight(0xffffff);
     //scene.add(light);
 
-camera.position.z = 20;
+camera.position.z = 10;
 
 
 // logica
@@ -81,7 +106,8 @@ var render = function() {
 
 // game loop
 var gameLoop = function() {
-    requestAnimationFrame(gameLoop);
+	requestAnimationFrame(gameLoop);
+	controls.update();
     update();
     render(); //renders the scene through the camera
 };
