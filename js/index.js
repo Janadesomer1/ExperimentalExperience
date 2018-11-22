@@ -40,7 +40,7 @@ loader.load("js/assets/models/model.json",
 		var light = new THREE.PointLight( 0xffffff, 3, 1000 ); 
 		light.position.set( 20, 20, 20 );
 		obj.position.y += -1;
-		obj.rotation.x += -1;
+		obj.rotation.x += -1.5;
 		scene.add( obj,light );
 	},
 
@@ -57,11 +57,9 @@ loader.load("js/assets/models/model.json",
 loader.load(
     "js/assets/models/environment2.json",
 	function ( obj ) {
-		var light2 = new THREE.pointLight( 0xffffff, 3, 3000 ); 
-		obj.position.y += -1;
-		obj.rotation.x += -1;
-		light2.position.set( 10, 10, 10 );
-		scene.add( obj,light2 );
+		obj.position.y += -2;
+		obj.rotation.y += -0.5;
+		scene.add( obj );
 	},
 	function ( xhr ) {
 		console.log( (xhr.loaded / xhr.total * 100) + '% van de environment ingeladen' );
@@ -71,26 +69,7 @@ loader.load(
 	}
 );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //var light = new THREE.AmbientLight(0xffffff);
-    //scene.add(light);
-
-camera.position.z = 10;
+camera.position.z = 3;
 
 
 // logica
