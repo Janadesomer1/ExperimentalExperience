@@ -1,13 +1,14 @@
-// basic variabelen
+ //Aanmaken scene en camera
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+//achtergrond instellen
+scene.background = new THREE.Color(0xff0000);
 
-// render variabelen
 var renderer= new THREE.WebGLRenderer({canvas: document.getElementById('myCanvas'), antialias:true});
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// zorgt ervoor dat als je de browser resized je content steeds in het middel van je viewport blijft
+// browser resize
 window.addEventListener('resize',function(){
     var width = window.innerWidth;
     var height = window.innerHeight;
@@ -16,31 +17,61 @@ window.addEventListener('resize',function(){
     camera.updateProjectionMatrix();
 })
 
+var loader = new THREE.ObjectLoader();
+
+loader.load("js/assets/models/model.json",
+
+	function ( obj ) {
+		var light = new THREE.PointLight( 0xffffff, 3, 1000 ); 
+		light.position.set( 20, 20, 20 );
+		obj.rotation.x += -1;
+		scene.add( obj,light );
+	},
+
+	function ( xhr ) {
+		console.log( (xhr.loaded / xhr.total * 100) + '% van het astronaut model ingeladen' );
+	},
+
+	function ( err ) {
+		console.error( 'astronaut model niet ingeladen' );
+	}
+);
+
+var loader2 = new THREE.ObjectLoader(); 
+loader2.load(
+    "js/assets/models/environment.json",
+
+	function ( environment ) {
+		var light2 = new THREE.AmbientLight( 0xffffff, 3, 1000 ); 
+		light2.position.set( 10, 10, 10 );
+		environment.scale.set(0.5,0.5,0.5);
+		environment.position.x = 0;				    //Position (x = right+ left-) 
+        environment.position.y = 0;				    //Position (y = up+, down-)
+		environment.position.z = 0;
+		scene.add( environment,light2 );
+	},
+
+	function ( xhr ) {
+		console.log( (xhr.loaded / xhr.total * 100) + '% van de environment ingeladen' );
+	},
+
+	function ( err ) {
+		console.error( 'astronaut model niet ingeladen' );
+	}
+);
 
 
 
+    //var light = new THREE.AmbientLight(0xffffff);
+    //scene.add(light);
 
-// basic test vorm tekenen
-var geometry = new THREE.CylinderGeometry(1,1,1); // coordinaten zijn x y en z axis (dus in de ruimte)
-
-// create material and assign color/image texture
-var material = new THREE.MeshBasicMaterial({color: 0xFFFFFF, wireframe: false});
-var cube= new THREE.Mesh(geometry, material);
-scene.add(cube);
-
-// camera naar achter zetten om te kunnen kijken op de figuur
-camera.position.z = 5;
-
-
-
-
+camera.position.z = 20;
 
 
 // logica
 var update = function() {
-    //ronddraaien van de kubus
-    cube.rotation.x += .01;
-    cube.rotation.y += .005;
+    //cube.rotation.x += .01;
+    //cube.rotation.y += .005;
 };
 
 // visueel weergeven
