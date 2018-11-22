@@ -19,8 +19,7 @@ window.addEventListener('resize',function(){
 
 var loader = new THREE.ObjectLoader();
 
-loader.load(
-    "js/assets/models/model.json",
+loader.load("js/assets/models/model.json",
 
 	function ( obj ) {
 		var light = new THREE.PointLight( 0xffffff, 3, 1000 ); 
@@ -43,10 +42,13 @@ loader2.load(
     "js/assets/models/environment.json",
 
 	function ( environment ) {
-		var light = new THREE.PointLight( 0xffffff, 3, 1000 ); 
-		light.position.set( 20, 20, 20 );
-		environment.rotation.x += -1;
-		scene.add( environment,light );
+		var light2 = new THREE.AmbientLight( 0xffffff, 3, 1000 ); 
+		light2.position.set( 10, 10, 10 );
+		environment.scale.set(0.5,0.5,0.5);
+		environment.position.x = 0;				    //Position (x = right+ left-) 
+        environment.position.y = 0;				    //Position (y = up+, down-)
+		environment.position.z = 0;
+		scene.add( environment,light2 );
 	},
 
 	function ( xhr ) {
@@ -63,7 +65,7 @@ loader2.load(
     //var light = new THREE.AmbientLight(0xffffff);
     //scene.add(light);
 
-camera.position.z = 5;
+camera.position.z = 20;
 
 
 // logica
