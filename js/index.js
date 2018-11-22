@@ -1,6 +1,8 @@
+ //Aanmaken scene en camera
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-
+//achtergrond instellen
+scene.background = new THREE.Color(0xff0000);
 
 var renderer= new THREE.WebGLRenderer({canvas: document.getElementById('myCanvas'), antialias:true});
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -18,7 +20,7 @@ window.addEventListener('resize',function(){
 var loader = new THREE.ObjectLoader();
 
 loader.load(
-	"js/assets/models/model.json",
+    "js/assets/models/model.json",
 
 	function ( obj ) {
 		var light = new THREE.PointLight( 0xffffff, 3, 1000 ); 
@@ -29,6 +31,26 @@ loader.load(
 
 	function ( xhr ) {
 		console.log( (xhr.loaded / xhr.total * 100) + '% van het astronaut model ingeladen' );
+	},
+
+	function ( err ) {
+		console.error( 'astronaut model niet ingeladen' );
+	}
+);
+
+var loader2 = new THREE.ObjectLoader(); 
+loader2.load(
+    "js/assets/models/environment.json",
+
+	function ( environment ) {
+		var light = new THREE.PointLight( 0xffffff, 3, 1000 ); 
+		light.position.set( 20, 20, 20 );
+		environment.rotation.x += -1;
+		scene.add( environment,light );
+	},
+
+	function ( xhr ) {
+		console.log( (xhr.loaded / xhr.total * 100) + '% van de environment ingeladen' );
 	},
 
 	function ( err ) {
