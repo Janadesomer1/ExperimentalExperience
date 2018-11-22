@@ -9,24 +9,27 @@
 </head>
 <body>
     <div class="wrapper">
-            <form class="controls">
-                    <div>
-                      <label for="voice">Voice setting</label>
-                      <select id="voice" name="voice">
-                        <option value="off" selected>Off</option>
-                      </select>
-                    </div>
-                    <div>
-                      <a class="mute">Mute</a>
-                    </div>
-                  </form>
+      <form class="controls">
+          <div>
+            <label for="voice">Voice setting</label>
+              <select id="voice" name="voice">
+                <option value="off" selected>Off</option>
+              </select>
+          </div>
+          <div>
+            <a class="mute">Mute</a>
+          </div>
+    </form>
 
                   <canvas id="myCanvas" class="visualiser"></canvas>
     </div>
 
+    <script src="js/three.min.js"></script>
     <script src="js/three.js"></script>
     <script src="js/index.js"></script>
     <!-- <script src="js/particle.js"></script> -->
     <script src="js/audioAnalyser.js"></script>
+    <script src="js/OBJLoader.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

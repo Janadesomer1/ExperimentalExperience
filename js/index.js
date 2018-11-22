@@ -1,3 +1,7 @@
+//inladen OBJLoader
+//import OBJLoader from 'three-obj-loader';
+
+
 // basic variabelen
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -16,19 +20,22 @@ window.addEventListener('resize',function(){
     camera.updateProjectionMatrix();
 })
 
-// basic test vorm tekenen
-var geometry = new THREE.CylinderGeometry(1,1,1); // coordinaten zijn x y en z axis (dus in de ruimte)
-var geometry2 = new THREE.CylinderGeometry(1,5,1); // coordinaten zijn x y en z axis (dus in de ruimte)
+//Astmanaut
+var loader = new THREE.FileLoader();
+	loader.load( 'app.json', function ( text ) {
 
-// create material and assign color/image texture
-var material = new THREE.MeshBasicMaterial({color: 0xFFFFFF, wireframe: true});
-var cube= new THREE.Mesh(geometry, material);
-scene.add(cube);
+	var player = new APP.Player();
+	player.load( JSON.parse( text ) );
+	player.setSize( window.innerWidth, window.innerHeight );
+	player.play();
 
-//object 2
-var material2 = new THREE.MeshBasicMaterial({color: 0xE9607A, wireframe: true});
-var cube2= new THREE.Mesh(geometry, material2);
-scene.add(cube2);
+	document.body.appendChild( player.dom );
+
+	window.addEventListener( 'resize', function () {
+	    player.setSize( window.innerWidth, window.innerHeight );
+	} );
+
+} );
 
 // camera naar achter zetten om te kunnen kijken op de figuur
 camera.position.z = 5;
@@ -36,8 +43,6 @@ camera.position.z = 5;
 // logica
 var update = function() {
     //ronddraaien van de kubus
-    cube.rotation.x += .01;
-    cube.rotation.y += .005;
 };
 
 // visueel weergeven
