@@ -2,6 +2,11 @@
 //import OBJLoader from 'three-obj-loader';
 
 
+// stap 1: JSON inladen met new THREE.FileLoader();
+
+// stap 2 (na inladen JSON): renderer, scene en camera aanmaken. Scene en camera zitten in je json
+
+
 // basic variabelen
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -9,7 +14,6 @@ var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHei
 // render variabelen
 var renderer= new THREE.WebGLRenderer({canvas: document.getElementById('myCanvas'), antialias:true});
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
 
 // zorgt ervoor dat als je de browser resized je content steeds in het middel van je viewport blijft
 window.addEventListener('resize',function(){
