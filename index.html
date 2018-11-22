@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
-    <title>The Astmanaut</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <title>The Astmanaut</title>
 </head>
+
 <body>
-    <div class="wrapper">
-            <form class="controls">
-                    <div>
-                      <label for="voice">Voice setting</label>
-                      <select id="voice" name="voice">
-                        <option value="off" selected>Off</option>
-                      </select>
-                    </div>
-                    <div>
-                      <a class="mute">Mute</a>
-                    </div>
-                  </form>
+  <div class="wrapper">
+    <form class="controls">
+      <div>
+        <label for="voice">Voice setting</label>
+        <select id="voice" name="voice">
+          <option value="off" selected>Off</option>
+        </select>
+      </div>
+      <div>
+        <a class="mute">Mute</a>
+      </div>
+    </form>
+    <canvas id="canvas" class="visualiser"></canvas>
+  </div>
 
-                  <canvas id="myCanvas" class="visualiser"></canvas>
-    </div>
-
-    <script src="js/three.min.js"></script>
-    <script src="js/OrbitControls.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/audioAnalyser.js"></script>
+  <script src="js/libs/three.min.js"></script>
+  <script src="js/controls/OrbitControls.js"></script>
+  <script src="js/sceneSubjects/AstronautEnvironment.js"></script>
+  <script src="js/sceneSubjects/SceneSubject.js"></script>
+  <script src="js/math.js"></script>
+  <script src="js/SceneManager.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/audioAnalyser.js"></script>
 </body>
+
 </html>
