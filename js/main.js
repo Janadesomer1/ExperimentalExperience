@@ -1,5 +1,8 @@
 const canvas = document.getElementById("canvas");
 const sceneManager = new SceneManager(canvas);
+const domUIManager = new DomUIManager();
+const eventBus = new EventBus();
+
 
 const bindEventListeners = () => {
 	window.onresize = resizeCanvas;
@@ -18,6 +21,11 @@ const render = () => {
 	requestAnimationFrame(render);
 	sceneManager.update();
 }
+
+function begin() {	
+	domUIManager.showUI()
+	render()
+ }
 
 const init = () => {
 	bindEventListeners();

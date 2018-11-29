@@ -85,4 +85,8 @@ function SceneManager(canvas) {
         camera.updateProjectionMatrix();
         renderer.setSize(width, height);
     }
+
+    this.introScreenClosed = function() {
+        eventBus.post(introScreenClosed)
+    }
 }
