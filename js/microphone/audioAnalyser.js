@@ -66,6 +66,9 @@ ajaxRequest.onload = () => {
 };
 
 ajaxRequest.send();
+
+
+
 //main block for doing the audio recording
 if (navigator.mediaDevices.getUserMedia) {
   console.log('getUserMedia supported.');

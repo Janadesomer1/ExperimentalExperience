@@ -1,4 +1,4 @@
-function AstronautEnvironment(scene) {
+function AstronautEnvironment(scene, constraints) {
 
     const loader = new THREE.ObjectLoader();
 
@@ -32,6 +32,40 @@ function AstronautEnvironment(scene) {
             console.error('astronaut model niet ingeladen');
         }
     );
+
+
+
+    if (navigator.mediaDevices.getUserMedia) {
+        console.log('getUserMedia supported wahoow');
+        const constraints = {
+          audio: true
+        };
+
+
+        navigator.mediaDevices.getUserMedia(constraints)
+          .then(
+            stream => {
+              source = audioCtx.createMediaStreamSource(stream);
+            })
+          .catch(err => {
+            console.log(`The following gUM error occured: ${err}`);
+          })
+      } else {
+        console.log('getUserMedia not supported on your browser!');
+      }
+
+
+
+
+
+        // navigator.mediaDevices.getUserMedia(constraints)
+        //     .then(function(stream) {
+        //         const getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+        // })
+        // .catch(function(err) {
+        //     console.log('GetUserMedia could not be called!')
+        // });
+
 
     this.update = function (time) {
         //momenteel nog leeg
