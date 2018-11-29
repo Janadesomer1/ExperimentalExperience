@@ -70,3 +70,18 @@ canvas {
 
     color: rgb(0, 0, 0);   
 }
+
+#draggable {
+    width: 200px;
+    height: 20px;
+    text-align: center;
+    touch-action: none;
+  }
+
+  .dropzone {
+    width: 200px;
+    height: 20px;
+    background: blueviolet;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
