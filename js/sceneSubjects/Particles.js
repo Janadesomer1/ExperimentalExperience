@@ -3,13 +3,13 @@ function Particles(scene, gameConstants) {
     const particlesGeometry = new THREE.Geometry();
     //const range = gameConstants.maxRadius*2;
     
-    for (let i = 0; i < 100; i++) {        
+    for (let i = 0; i < 300; i++) {        
         const vertex = new THREE.Vector3();
         
         vertex.baseCoords = new THREE.Vector3(
-        	//getRandom(-range/2, range/2),
-        	getRandom(-5, 200),
-            //getRandom(-range/2, range/2)
+        	getRandom(-100/2, 100/2),
+        	getRandom(-20, 100),
+            getRandom(-100/2, 100/2)
         )
         
         vertex.x = vertex.baseCoords.x;

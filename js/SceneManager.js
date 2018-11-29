@@ -50,7 +50,7 @@ function SceneManager(canvas) {
         const nearPlane = 1;
         const farPlane = 100;
         const camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
-        camera.position.z = 3;
+        camera.position.z = 8;
         return camera;
     }
 

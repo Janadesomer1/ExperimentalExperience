@@ -1,14 +1,18 @@
-function AstronautEnvironment(scene, constraints) {
+function AstronautEnvironment(scene, constraints,camera) {
 
     // set up forked web audio context, for multiple browsers
     // window. is --> For Safari browser
     const audioCtx = new(window.AudioContext || window.webkitAudioContext)();
-    const analyser = audioCtx.createAnalyser();
-    //const minDecibels = -90;
-    analyser.minDecibels = -90;
-    // analyser.maxDecibels = -10;
-    // analyser.smoothingTimeConstant = 0.85;
     let source;
+
+
+    const analyser = audioCtx.createAnalyser();
+
+    const minDecibels = -90;
+    analyser.maxDecibels = -10;
+    analyser.smoothingTimeConstant = 0.85;
+
+    //var gainNode = audioCtx.createGain();
 
     const loader = new THREE.ObjectLoader();
 
@@ -21,12 +25,6 @@ function AstronautEnvironment(scene, constraints) {
             obj.rotation.x += -1.5;
             scene.add(obj, light);
         }
-        // function (xhr) {
-        //     console.log((xhr.loaded / xhr.total * 100) + '% van het astronaut model ingeladen');
-        // },
-        // function (err) {
-        //     console.error('astronaut model niet ingeladen');
-        // }
     );
 
     //mountain environment model inladen
@@ -37,12 +35,6 @@ function AstronautEnvironment(scene, constraints) {
             obj.scale.set(10, 4, 10);
             scene.add(obj);
         }
-        // function (xhr) {
-        //     console.log((xhr.loaded / xhr.total * 100) + '% van de environment ingeladen');
-        // },
-        // function (err) {
-        //     console.error('astronaut model niet ingeladen');
-        // }
     );
 
 
@@ -56,8 +48,7 @@ function AstronautEnvironment(scene, constraints) {
               source = audioCtx.createMediaStreamSource(stream);
               source.connect(analyser);
               analyser.connect(audioCtx.destination);
-              //visualize();
-              
+              camera.rotation.x += -4;
             })
             .catch(err => {
                 console.log(`Ge hebt een gUM foutje: ${err}`);
@@ -67,15 +58,9 @@ function AstronautEnvironment(scene, constraints) {
             }
 
 
-    this.update = function (time) {
-        updateAstronautHeight(time);
-        }
 
-    function updateAstronautHeight(time) {
-        //console.log("deze functie werkt soort van");
-        if(analyser.minDecibels >= -10){
-            console.log("deze functie werkt soort van");
-            obj.rotation.x += -4;
+
+    this.update = function (time) {
+        //updateAstronautHeight(time);
         }
-    }
 }
