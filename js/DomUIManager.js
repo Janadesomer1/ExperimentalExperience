@@ -1,5 +1,5 @@
 function DomUIManager() {
-
+    const countDownContainer = document.getElementById("countDownContainer");
     const instructionsContainer = document.getElementById("instructionsContainer");
     console.log("Welcome in the DOMUIManager");
 
@@ -11,6 +11,7 @@ function DomUIManager() {
 
     function startGame() {        
         instructionsContainer.classList.add("fade");
+        countDownContainer.classList.remove("fade");
         //sceneManager.introScreenClosed();
         //disablingDiv.style.display = 'block';
         console.log("Mission started");
