@@ -15,7 +15,7 @@ function SceneManager(canvas) {
 
     function buildScene() {
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color("#0000f5");
+        scene.background = new THREE.Color("#000000");
         return scene;
     }
 
@@ -61,6 +61,7 @@ function SceneManager(canvas) {
         const sceneSubjects = [
             new SceneSubject(scene),
             new AstronautEnvironment(scene),
+            new Particles(scene),
         ];
         return sceneSubjects;
     }
