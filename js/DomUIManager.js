@@ -11,8 +11,8 @@ function DomUIManager() {
 
     function startGame() {        
         instructionsContainer.classList.add("fade");
-        sceneManager.introScreenClosed();
-        disablingDiv.style.display = 'block';
+        //sceneManager.introScreenClosed();
+        //disablingDiv.style.display = 'block';
         console.log("Mission started");
 
         startTimeOut();
