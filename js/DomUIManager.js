@@ -19,19 +19,19 @@ function DomUIManager() {
     }
 
     function startTimeOut() {
-        setTimeout( () => countDownContainer.innerText = "3", 1000 )
-        setTimeout( () => countDownContainer.innerText = "2", 2000 )
-        setTimeout( () => countDownContainer.innerText = "1", 3000 )
+        setTimeout( () => countDownContainer.innerText = "3", 1000 );
+        setTimeout( () => countDownContainer.innerText = "2", 2000 );
+        setTimeout( () => countDownContainer.innerText = "1", 3000 );
 
         setTimeout( () => { 
-            countDownContainer.innerText = "0"
-            eventBus.post(startCountDownFinishedEvent)
+            countDownContainer.innerText = "0";
+            eventBus.post(startCountDownFinishedEvent);
         }, 4000 )
 
         setTimeout( () => {
-            countDownContainer.innerText = ""
-            countDownContainer.classList.add("fade")
-            instructionsContainer.style.display = "none"
+            countDownContainer.innerText = "";
+            countDownContainer.classList.add("fade");
+            instructionsContainer.style.display = "none";
         }, 4500 )
     }
 
