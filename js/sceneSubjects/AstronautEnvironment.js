@@ -3,14 +3,14 @@ function AstronautEnvironment(scene, constraints,camera) {
     // set up forked web audio context, for multiple browsers
     // window. is --> For Safari browser
     const audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+    const analyser = audioCtx.createAnalyser();
+    analyser.smoothingTimeConstant = 0.3;
+    analyser.fftSize = 512;
+    let frequencyData = new Uint8Array(analyser.frequencyBinCount); 
     let source;
 
-
-    const analyser = audioCtx.createAnalyser();
-
-    const minDecibels = -90;
-    analyser.maxDecibels = -10;
-    analyser.smoothingTimeConstant = 0.85;
+    // const minDecibels = -90;
+    // analyser.maxDecibels = -10;
 
     //var gainNode = audioCtx.createGain();
 
@@ -19,11 +19,11 @@ function AstronautEnvironment(scene, constraints,camera) {
     //astronaut model inladen
     loader.load("./models/model.json",
         function (obj) {
-            var light = new THREE.PointLight(0xffffff, 3, 1000);
-            light.position.set(20, 20, 20);
+            // var light = new THREE.PointLight(0xffffff, 3, 1000);
+            // light.position.set(20, 20, 20);
             obj.position.y += -0.5;
             obj.rotation.x += -1.5;
-            scene.add(obj, light);
+            scene.add(obj);
         }
     );
 
@@ -48,7 +48,6 @@ function AstronautEnvironment(scene, constraints,camera) {
               source = audioCtx.createMediaStreamSource(stream);
               source.connect(analyser);
               analyser.connect(audioCtx.destination);
-              camera.rotation.x += -4;
             })
             .catch(err => {
                 console.log(`Ge hebt een gUM foutje: ${err}`);

@@ -20,7 +20,7 @@ function SceneManager(canvas) {
 
     function buildScene() {
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color("#000000");
+        //scene.background = new THREE.Color("#000000");
         return scene;
     }
 
@@ -62,11 +62,14 @@ function SceneManager(canvas) {
         return controls;
     }
 
+
+
     function createSceneSubjects(scene, constraints) {
         const sceneSubjects = [
             new SceneSubject(scene),
             new AstronautEnvironment(scene, constraints),
             new Particles(scene),
+            new Lights(scene),
         ];
         return sceneSubjects;
     }
@@ -74,9 +77,18 @@ function SceneManager(canvas) {
     this.update = function () {
         controls.update();
         const elapsedTime = clock.getElapsedTime();
+        //const deltaTime = clock.getDelta()
+
         for (let i = 0; i < sceneSubjects.length; i++)
             sceneSubjects[i].update(elapsedTime);
+
+        // for(let i=0; i<timeDependentShaders.length; i++)
+        // timeDependentShaders[i].uniforms['time'].value = deltaTime
+
+
+
         renderer.render(scene, camera);
+        //composer.render(deltaTime)
     }
 
     this.onWindowResize = function () {
@@ -89,5 +101,6 @@ function SceneManager(canvas) {
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
         renderer.setSize(width, height);
+        //composer.setSize(width, height);
     }
 }
