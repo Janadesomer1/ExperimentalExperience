@@ -16,9 +16,9 @@ function Particles(scene, gameConstants) {
         vertex.y = vertex.baseCoords.y;
         vertex.z = vertex.baseCoords.z;
 
-        vertex.speedX = getRandom(-0.1, 0.1);
-        vertex.speedY = getRandom(-0.1, 0.1);
-        vertex.speedZ = getRandom(-0.1, 0.1);
+        vertex.speedX = getRandom(-0.01, 0.01);
+        vertex.speedY = getRandom(-0.01, 0.01);
+        vertex.speedZ = getRandom(-0.01, 0.01);
 
         particlesGeometry.vertices.push(vertex);
     }
