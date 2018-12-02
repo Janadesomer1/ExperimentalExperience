@@ -103,4 +103,8 @@ function SceneManager(canvas) {
         renderer.setSize(width, height);
         //composer.setSize(width, height);
     }
+
+    this.introScreenClosed = function() {
+        eventBus.post(introScreenClosed)
+    }
 }
