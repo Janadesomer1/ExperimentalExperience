@@ -50,7 +50,7 @@ function SceneManager(canvas) {
     }
 
     function buildControls() {
-        //const controls = new THREE.OrbitControls(camera);
+        const controls = new THREE.OrbitControls(camera);
         controls.enableDamping = true;
         controls.campingFactor = 0.25;
         controls.enableZoom = true;
