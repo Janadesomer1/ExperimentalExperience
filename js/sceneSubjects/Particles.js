@@ -3,7 +3,7 @@ function Particles(scene, gameConstants) {
     const particlesGeometry = new THREE.Geometry();
     //const range = gameConstants.maxRadius*2;
     
-    for (let i = 0; i < 2000; i++) {        
+    for (let i = 0; i < 1500; i++) {        
         const vertex = new THREE.Vector3();
         
         vertex.baseCoords = new THREE.Vector3(
@@ -26,7 +26,7 @@ function Particles(scene, gameConstants) {
     const textureLoader = new THREE.TextureLoader();
 	const texture = textureLoader.load("textures/particle.png");
 
-	const particleMaterial = new THREE.PointsMaterial({ map: texture, color: "#fff", size: .2, blending: THREE.AdditiveBlending, transparent: true, opacity: 0.7, alphaTest: 0.25 });
+	const particleMaterial = new THREE.PointsMaterial({ map: texture, color: "#fff", size: .15, blending: THREE.AdditiveBlending, transparent: true, opacity: 0.7, alphaTest: 0.25 });
     const particlePointsCloud = new THREE.Points(particlesGeometry, particleMaterial);
     
     scene.add(particlePointsCloud)
