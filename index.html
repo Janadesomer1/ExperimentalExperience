@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
     <div class="countDownContainer fade" id="countDownContainer"></div>
     <div class="instructions" id="instructionsContainer">
       <p>Welcome to Astmanaut, click start</p>
@@ -21,27 +20,17 @@
     </div>
 
   
-  <div class="wrapper">
-    <form class="controls">
-      <div>
-        <label for="voice">Voice setting</label>
-        <select id="voice" name="voice">
-          <option value="off" selected>Off</option>
-        </select>
-      </div>
-      <div>
-        <a class="mute">Mute</a>
-      </div>
-    </form>
     <canvas id="canvas" class="visualiser"></canvas>
-  </div>
+
 
   <script src="js/libs/three.min.js"></script>
   <script src="js/libs/math.js"></script>
 
+
   <script src="js/controls/OrbitControls.js"></script>
 
   <script src="js/sceneSubjects/Particles.js"></script>
+  <script src="js/sceneSubjects/Lights.js"></script>
   <script src="js/sceneSubjects/AstronautEnvironment.js"></script>
   <script src="js/sceneSubjects/SceneSubject.js"></script>
   
@@ -52,9 +41,6 @@
   <script src="js/draganddrop.js"></script>
   <script src="js/DomUIManager.js"></script>
   <script src="js/main.js"></script>
- 
-  <script src="js/microphone/audioAnalyser.js"></script>
- 
 </body>
 
 </html>

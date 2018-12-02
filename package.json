@@ -24,10 +24,10 @@
         "style-loader": "^0.13.1",
         "webpack": "2.2.0-rc.7",
         "webpack-dev-server": "2.2.0-rc.0"
-      },
-      "dependencies": {
+    },
+    "dependencies": {
         "three": "^0.84.0",
-        "three-orbit-controls": "^82.1.0"
-      }
-
+        "three-orbit-controls": "^82.1.0",
+        "three-vignette-background": "^1.0.3"
+    }
 }

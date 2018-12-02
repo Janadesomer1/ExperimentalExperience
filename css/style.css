@@ -5,7 +5,13 @@
 body {
 	font-size: 16dppx;
 	margin: 0;
+	background-image:
+    radial-gradient(
+	  #2D29D6,
+      #08093E
+    );
 	font-family: 'Barlow', sans-serif;
+
 }
 
 canvas {

@@ -4,6 +4,8 @@ const domUIManager = new DomUIManager();
 const eventBus = new EventBus();
 
 
+//const eventBus = new EventBus()
+
 const bindEventListeners = () => {
 	window.onresize = resizeCanvas;
 	resizeCanvas();
