@@ -5,8 +5,9 @@ function AstronautEnvironment(scene) {
     //astronaut model inladen
     loader.load("./models/model.json",
         function (obj) {
-            obj.position.y += -0.5;
+            obj.position.y += -2;
             obj.rotation.x += -1.5;
+            obj.rotation.z += -3;
             scene.add(obj);
         }
     );

@@ -42,9 +42,10 @@ function SceneManager(canvas) {
         const aspectRatio = width / height;
         const fieldOfView = 60;
         const nearPlane = 1;
-        const farPlane = 100;
+        const farPlane = 90;
         const camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
-        camera.position.z = 8;
+        camera.position.z = 6.5;
+        camera.position.x = -12;
         return camera;
     }
 
@@ -62,6 +63,7 @@ function SceneManager(canvas) {
             new AstronautEnvironment(scene),
             new Particles(scene),
             new Lights(scene),
+            new LensFlare(scene),
         ];
         return sceneSubjects;
     }
