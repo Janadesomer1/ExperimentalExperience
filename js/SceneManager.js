@@ -7,15 +7,11 @@ function SceneManager(canvas) {
         height: canvas.height
     }
 
-    const constraints = {
-        audio: true,
-    }
-
     const scene = buildScene();
     const renderer = buildRender(screenDimensions);
     const camera = buildCamera(screenDimensions);
     const controls = buildControls();
-    const sceneSubjects = createSceneSubjects(scene,constraints);
+    const sceneSubjects = createSceneSubjects(scene);
 
     function buildScene() {
         const scene = new THREE.Scene();
@@ -60,10 +56,10 @@ function SceneManager(canvas) {
         return controls;
     }
 
-    function createSceneSubjects(scene, constraints) {
+    function createSceneSubjects(scene,camera) {
         const sceneSubjects = [
-            new SceneSubject(scene,constraints),
-            new AstronautEnvironment(scene, constraints),
+            new SceneSubject(scene,camera),
+            new AstronautEnvironment(scene),
             new Particles(scene),
             new Lights(scene),
         ];

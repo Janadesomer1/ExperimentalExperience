@@ -1,4 +1,4 @@
-function SceneSubject(scene) {
+function SceneSubject(scene,camera) {
 
 	//get Microphone
 	navigator.getUserMedia = navigator.getUserMedia ||
@@ -10,7 +10,7 @@ function SceneSubject(scene) {
 			audio: true
 		  },
 	  
-		  function(stream) {
+		  function(stream,camera) {
 			audioContext = new AudioContext();
 			analyser = audioContext.createAnalyser();
 			microphone = audioContext.createMediaStreamSource(stream);
@@ -25,7 +25,7 @@ function SceneSubject(scene) {
 
 	  
 	  
-			javascriptNode.onaudioprocess = function() {
+			javascriptNode.onaudioprocess = function(camera) {
 				var array = new Uint8Array(analyser.frequencyBinCount);
 				analyser.getByteFrequencyData(array);
 				var values = 0;
@@ -37,7 +37,7 @@ function SceneSubject(scene) {
 	  
 				var average = values / length;
 
-				update(average);
+				update(average,camera);
 			  }
 		  },
 		  function(err) {
@@ -55,9 +55,10 @@ function SceneSubject(scene) {
 	mesh.position.set(0, 0, -20);
 	scene.add(mesh);
 
-	const update = (average) => {
-		const scale = 1 + average;
+	const update = (average, camera) => {
+		const scale =  average;
 		mesh.scale.set(scale, scale, scale);
+		//camera.position.z = 8 + average;
 	}
 
 	this.update = function (time) {
