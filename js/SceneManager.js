@@ -12,7 +12,6 @@ function SceneManager(canvas) {
     }
 
     const scene = buildScene();
-    //const audio = buildAudio();
     const renderer = buildRender(screenDimensions);
     const camera = buildCamera(screenDimensions);
     const controls = buildControls();
@@ -20,7 +19,6 @@ function SceneManager(canvas) {
 
     function buildScene() {
         const scene = new THREE.Scene();
-        //scene.background = new THREE.Color("#000000");
         return scene;
     }
 
@@ -62,11 +60,9 @@ function SceneManager(canvas) {
         return controls;
     }
 
-
-
     function createSceneSubjects(scene, constraints) {
         const sceneSubjects = [
-            new SceneSubject(scene),
+            new SceneSubject(scene,constraints),
             new AstronautEnvironment(scene, constraints),
             new Particles(scene),
             new Lights(scene),
