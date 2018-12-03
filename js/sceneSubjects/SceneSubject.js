@@ -1,4 +1,4 @@
-function SceneSubject(scene,camera) {
+function SceneSubject(scene,camera,constraints) {
 
 	//get Microphone
 	navigator.getUserMedia = navigator.getUserMedia ||
