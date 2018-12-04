@@ -13,11 +13,11 @@ function AstronautEnvironment(scene) {
     );
 
     //mountain environment model inladen
-    loader.load("./models/mountains.json",
+    loader.load("./models/tall-mountains.json",
         function (obj) {
-            obj.position.y += -2;
-            obj.rotation.y += -0.5;
-            obj.scale.set(10, 4, 10);
+            obj.position.y += -6;
+            obj.rotation.y += -1;
+            obj.scale.set(10, 5, 10);
             scene.add(obj);
         }
     );

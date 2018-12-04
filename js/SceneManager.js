@@ -69,6 +69,7 @@ function SceneManager(canvas) {
     }
 
     this.update = function () {
+        //camera.position.x += 1;
         controls.update();
         const elapsedTime = clock.getElapsedTime();
         //const deltaTime = clock.getDelta()
