@@ -11,6 +11,7 @@ function SceneSubject(scene,camera,constraints) {
 		  },
 	  
 		  function(stream,camera) {
+			console.log("Uw audio komt erin!");
 			audioContext = new AudioContext();
 			analyser = audioContext.createAnalyser();
 			microphone = audioContext.createMediaStreamSource(stream);
@@ -56,8 +57,9 @@ function SceneSubject(scene,camera,constraints) {
 	scene.add(mesh);
 
 	const update = (average, camera) => {
-		const scale =  average;
-		mesh.scale.set(scale, scale, scale);
+		const height =  average/10;
+		mesh.position.set(0, height, -20);
+		//mesh.position.y += average/100;
 		//camera.position.z = 8 + average;
 	}
 
