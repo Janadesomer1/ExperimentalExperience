@@ -11,6 +11,16 @@ const bindEventListeners = () => {
 	resizeCanvas();
 }
 
+eventBus.subscribe(startCountDownFinishedEvent, analyticsSendGameStartEvent)
+
+function analyticsSendGameStartEvent() {
+	ga('send', {
+		hitType: 'event',
+		eventCategory: 'gameplay',
+		eventAction: 'game started',
+	  });
+}
+
 const resizeCanvas = () => {
 	canvas.style.width = '100vw';
 	canvas.style.height = '100vh';
