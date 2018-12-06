@@ -17,12 +17,14 @@ function LensFlare(scene) {
         light.position.set( x, y, z );
         scene.add( light );
 
+        //LensflareElement( texture : Texture, size : Float, distance : Float, color : Color, blending : Materials )
         var lensflare = new THREE.Lensflare();
-        lensflare.addElement( new THREE.LensflareElement( textureFlare0, 700, 0, light.color ) );
-        lensflare.addElement( new THREE.LensflareElement( textureFlare3, 60, 0.3 ) );
+        lensflare.addElement( new THREE.LensflareElement( textureFlare0, 300, 0, light.color ) );
+        lensflare.addElement( new THREE.LensflareElement( textureFlare3, 300, 0.3) );
         // lensflare.addElement( new THREE.LensflareElement( textureFlare3, 70, 0.7 ) );
         // lensflare.addElement( new THREE.LensflareElement( textureFlare3, 120, 0.9 ) );
         // lensflare.addElement( new THREE.LensflareElement( textureFlare3, 70, 1 ) );
+        //lensflare.position.y = 500;
         light.add( lensflare );
     }
 

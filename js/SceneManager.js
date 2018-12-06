@@ -19,6 +19,7 @@ function SceneManager(canvas) {
 
     function buildScene() {
         const scene = new THREE.Scene();
+        scene.background = new THREE.Color().setHSL( 0.51, 0.4, 0.01 );
         return scene;
     }
 
@@ -54,7 +55,7 @@ function SceneManager(canvas) {
     }
 
     function buildControls() {
-        const controls = new THREE.OrbitControls(camera);
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
         controls.enableDamping = true;
         controls.campingFactor = 0.25;
         controls.enableZoom = true;
