@@ -11,6 +11,7 @@ function SceneSubject(scene,camera,constraints) {
 		  },
 	  
 		  function(stream,camera) {
+			console.log("Uw audio komt erin!");
 			audioContext = new AudioContext();
 			analyser = audioContext.createAnalyser();
 			microphone = audioContext.createMediaStreamSource(stream);

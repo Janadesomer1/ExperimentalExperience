@@ -7,11 +7,15 @@ function SceneManager(canvas) {
         height: canvas.height
     }
 
+    //const progressStateManager = new ProgressStateManager()
+
     const scene = buildScene();
     const renderer = buildRender(screenDimensions);
     const camera = buildCamera(screenDimensions);
     const controls = buildControls();
     const sceneSubjects = createSceneSubjects(scene);
+
+    //const progressEntitiesManager = new ProgressEntitiesManager(scene, progressStateManager.progressConstants, progressStateManager.progressState)
 
     function buildScene() {
         const scene = new THREE.Scene();
@@ -57,9 +61,9 @@ function SceneManager(canvas) {
         return controls;
     }
 
-    function createSceneSubjects(scene,camera) {
+    function createSceneSubjects(scene,camera,progressConstants) {
         const sceneSubjects = [
-            new SceneSubject(scene,camera),
+            new SceneSubject(scene,camera,progressConstants),
             new AstronautEnvironment(scene),
             new Particles(scene),
             new Lights(scene),
@@ -72,18 +76,14 @@ function SceneManager(canvas) {
         //camera.position.x += 1;
         controls.update();
         const elapsedTime = clock.getElapsedTime();
-        //const deltaTime = clock.getDelta()
 
         for (let i = 0; i < sceneSubjects.length; i++)
             sceneSubjects[i].update(elapsedTime);
 
-        // for(let i=0; i<timeDependentShaders.length; i++)
-        // timeDependentShaders[i].uniforms['time'].value = deltaTime
-
-
+            // progressStateManager.update(elapsedTime)
+            // progressEntitiesManager.update(elapsedTime)
 
         renderer.render(scene, camera);
-        //composer.render(deltaTime)
     }
 
     this.onWindowResize = function () {
