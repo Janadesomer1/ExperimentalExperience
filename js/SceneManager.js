@@ -13,7 +13,7 @@ function SceneManager(canvas) {
     const renderer = buildRender(screenDimensions);
     const camera = buildCamera(screenDimensions);
     const controls = buildControls();
-    const sceneSubjects = createSceneSubjects(scene);
+    const sceneSubjects = createSceneSubjects(scene,camera);
 
     //const progressEntitiesManager = new ProgressEntitiesManager(scene, progressStateManager.progressConstants, progressStateManager.progressState)
 
@@ -62,9 +62,14 @@ function SceneManager(canvas) {
     }
 
     function createSceneSubjects(scene,camera,progressConstants) {
+
+        let astronautEnvironment = new AstronautEnvironment(scene);
+        
+        scene.add(astronautEnvironment.mesh);
+
         const sceneSubjects = [
             new SceneSubject(scene,camera,progressConstants),
-            new AstronautEnvironment(scene),
+            astronautEnvironment,
             new Particles(scene),
             new Lights(scene),
             new LensFlare(scene),
