@@ -20,21 +20,52 @@
     Your browser does not support the audio element.
     </audio>
 
-    <!-- Instructions -->
+    <!-- Scenes -->
+    <!-- Scene3: Maan -->
     <div class="instructions" id="instructionsContainer">
       <p>Welcome to Astmanaut, click start</p>
-        <div id="startButton" class="flexColumn start" onclick="startGame()">				
-            <span class="margin8">START</span>
-        </div>
+      <div id="startButton" class="flexColumn start" onclick="startGame()">				
+        <span class="margin8" id="start">START</span>
+      </div>
     </div>
 
-  
-    <canvas id="canvas" class="visualiser"></canvas>
+    <!-- Scene2: Rakket -->
+    <div class="scene2" id="scene2">
+      <p>Scene2</p>
+      <button class="next2" id="button2" type="button">Next</button>
+    </div>
 
+    <!-- Scene1: Huis -->
+    <div class="scene1" id="scene1">
+      <p>Scene1</p>
+      <button class="next1" id="button1" type="button">Next</button>
+    </div>
+
+    <!-- Skip scene 1, 2 and 3 -->
+    <button class="skip" id="skip" type="button">
+      Skip
+    </button>
+  
+    <!-- Loading screen-->
+    <div id="load_screen" class="load_screen">
+      <div id="loading" class="loading">
+        <p>Loading ...</p>
+        <p>This site uses audio. Please, put your audio and mic on.</p>
+      </div>
+    </div>
+
+  <canvas id="canvas" class="visualiser"></canvas>
+  <script>
+    window.addEventListener("load", function(){
+      const load_screen = document.getElementById("load_screen");
+    });
+    setTimeout( () => {
+      document.body.removeChild(load_screen);
+    }, 5000);
+  </script>
 
   <script src="js/libs/three.min.js"></script>
   <script src="js/libs/math.js"></script>
-
 
   <script src="js/libs/LensFlare.js"></script>
   <script src="js/controls/OrbitControls.js"></script>
@@ -44,11 +75,11 @@
   <script src="js/sceneSubjects/Lights.js"></script>
   <script src="js/sceneSubjects/AstronautEnvironment.js"></script>
   <script src="js/sceneSubjects/SceneSubject.js"></script>
-  <!-- <script src="js/progressState/ProgressStateManager.js"></script> -->
   
   <script src="js/eventBus/EventBus.js"></script>
   <script src="js/eventBus/constants.js"></script>
 
+  <script src="js/IntroScenes.js"></script>
   <script src="js/SceneManager.js"></script>
   <script src="js/DomUIManager.js"></script>
   <script src="js/main.js"></script>
