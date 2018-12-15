@@ -100,8 +100,6 @@ function AstronautEnvironment(scene,camera) {
 			mesh.position.set(0, 0, 0);
 		}
 		decibelMeter.innerText = Math.round(average) + " " + "miles travelled";
-		//mesh.position.y += average/100;
-		//camera.position.z = 8 + average;
 	}
 
     this.update = function (time) {
