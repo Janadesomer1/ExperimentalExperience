@@ -7,7 +7,6 @@ function SceneManager(canvas) {
         height: canvas.height
     }
 
-
     const scene = buildScene();
     const renderer = buildRender(screenDimensions);
     const camera = buildCamera(screenDimensions);
@@ -76,15 +75,18 @@ function SceneManager(canvas) {
     }
 
     this.update = function () {
-        //camera.position.x += 1;
+
+        let speed = Date.now() * 0.0005;
+        camera.position.x = Math.cos(speed) * 10;
+        camera.position.z = Math.sin(speed) * 10;
+      
+        camera.lookAt(scene.position); //0,0,0
+        
         controls.update();
         const elapsedTime = clock.getElapsedTime();
 
         for (let i = 0; i < sceneSubjects.length; i++)
             sceneSubjects[i].update(elapsedTime);
-
-            // progressStateManager.update(elapsedTime)
-            // progressEntitiesManager.update(elapsedTime)
 
         renderer.render(scene, camera);
     }
