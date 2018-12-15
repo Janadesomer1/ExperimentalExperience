@@ -67,7 +67,7 @@ function AstronautEnvironment(scene,camera) {
 		console.log("getUserMedia werkt ier nie!");
       }
       
-
+      
     const loader = new THREE.ObjectLoader();
     const mesh = new THREE.Object3D();
     this.mesh = mesh;
@@ -92,14 +92,21 @@ function AstronautEnvironment(scene,camera) {
         }
     );
 
+
     const update = (average,camera) => {
 		if(average > 10){
 			mesh.position.y += 0.30;
 		}else {
 			mesh.position.y -= 1;
 			mesh.position.set(0, 0, 0);
-		}
-		decibelMeter.innerText = Math.round(average) + " " + "miles travelled";
+        }
+
+        decibelMeter.innerText = Math.round(mesh.position.y) + " " + "miles travelled";
+
+
+        
+
+
 	}
 
     this.update = function (time) {
