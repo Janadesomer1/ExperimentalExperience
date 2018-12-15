@@ -7,7 +7,6 @@ function SceneManager(canvas) {
         height: canvas.height
     }
 
-    //const progressStateManager = new ProgressStateManager()
 
     const scene = buildScene();
     const renderer = buildRender(screenDimensions);
@@ -15,7 +14,6 @@ function SceneManager(canvas) {
     const controls = buildControls();
     const sceneSubjects = createSceneSubjects(scene,camera);
 
-    //const progressEntitiesManager = new ProgressEntitiesManager(scene, progressStateManager.progressConstants, progressStateManager.progressState)
 
     function buildScene() {
         const scene = new THREE.Scene();
@@ -68,7 +66,7 @@ function SceneManager(canvas) {
         scene.add(astronautEnvironment.mesh);
 
         const sceneSubjects = [
-            new SceneSubject(scene,camera,progressConstants),
+            //new SceneSubject(scene,camera,progressConstants),
             astronautEnvironment,
             new Particles(scene),
             new Lights(scene),
