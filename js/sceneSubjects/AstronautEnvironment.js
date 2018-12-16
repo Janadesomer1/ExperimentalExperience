@@ -30,7 +30,7 @@ function AstronautEnvironment(scene,camera) {
 		  },
 	  
 		  function(stream,camera) {
-			console.log("Uw audio komt erin! Is it a 10/20?");
+			console.log("Audio works");
 			audioContext = new AudioContext();
 			analyser = audioContext.createAnalyser();
 			microphone = audioContext.createMediaStreamSource(stream);
