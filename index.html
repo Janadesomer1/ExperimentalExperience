@@ -13,56 +13,56 @@
 </head>
 
 <body>
-    <div class="decibelMeter" id="decibelMeter"></div>
-    <div class="countDownContainer fade" id="countDownContainer"></div>
-
-    <!-- Instructions -->
-    <div class="instructions" id="instructionsContainer">
-      <p>Welcome to Astmanaut, click start</p>
-        <div id="startButton" class="flexColumn start" onclick="startGame()">				
-            <span class="margin8">START</span>
-        </div>
+  <div class="main">
+    <!-- Images-->
+    <div class="introImages">
+      <img class="mountainImg" src="assets/img/mountains.png" width="900" height="400" alt="mountains">
+      <img class="moonImg" src="assets/img/moon.png" width="900" height="220" alt="mountains">
     </div>
 
-    <!-- end-state -->
-    <!-- <div class="finished hide" id="finishedContainer">
-      <p>Good job, you travelled 110 miles into space!</p>
-        <div id="startButton" class="flexColumn start" onclick="endGame()">				
-            <span class="margin8">Go again</span>
-        </div>
-    </div> -->
-
-  
-    <canvas id="canvas" class="visualiser"></canvas>
+    <!-- conflict -->
+    <!-- <div class="decibelMeter" id="decibelMeter"></div>
+    <div class="countDownContainer fade" id="countDownContainer"></div> -->
 
 
-  <script src="js/libs/three.min.js"></script>
-  <script src="js/libs/math.js"></script>
+    <div class="instructions" id="instructionsContainer">
+      <h1>ASTMANAUT</h1>
+      <p class="intro">Are you ready to make your dream come true? </br>
+        We help you to get better control over your astma.
+      </p>
+      <div class="homeButtons">
+        <a class="homeButton" href="pages/game.html" id="startButton" onclick="startGame()">Start</a>
+        <a class="homeButton" href="pages/story.html">Watch the story</a>
+      </div>
+    </div>
 
+    <!-- Stars-->
+    <div id="space" class="space">
+      <div class="stars"></div>
+      <div class="stars"></div>
+      <div class="stars"></div>
+      <div class="stars"></div>
+      <div class="stars"></div>
+    </div>
 
-  <script src="js/libs/LensFlare.js"></script>
-  <script src="js/libs/FBXLoader2.js"></script>
-  <script src="js/libs/inflate.min.js"></script>
-  <script src="js/controls/OrbitControls.js"></script>
+  </div>
 
-  <script src="js/sceneSubjects/Particles.js"></script>
-  <script src="js/sceneSubjects/LensFlare.js"></script>
-  <script src="js/sceneSubjects/Lights.js"></script>
-  <script src="js/sceneSubjects/AstronautEnvironment.js"></script>
-  <script src="js/sceneSubjects/SceneSubject.js"></script>
-  
-  <script src="js/eventBus/EventBus.js"></script>
-  <script src="js/eventBus/constants.js"></script>
+  <!-- Loading screen-->
+  <div id="load_screen" class="load_screen">
+    <div id="loading" class="loading">
+      <p>Loading ...</p>
+      <p>This site uses audio. Please, put your audio and mic on.</p>
+    </div>
+  </div>
 
-  <!-- post processing -->
-  <script src="js/libs/EffectComposer.js"></script>
-  <script src="js/libs/CopyShader.js"></script>
-  <script src="js/libs/RenderPass.js"></script>
-  <script src="js/libs/ShaderPass.js"></script>
-
-  <script src="js/SceneManager.js"></script>
-  <script src="js/DomUIManager.js"></script>
-  <script src="js/main.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      const load_screen = document.getElementById("load_screen");
+    });
+    setTimeout(() => {
+      document.body.removeChild(load_screen);
+    }, 1500);
+  </script>
 </body>
 
 </html>

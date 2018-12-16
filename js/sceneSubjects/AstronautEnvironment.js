@@ -92,7 +92,7 @@ function AstronautEnvironment(scene,camera) {
     this.mesh = mesh;
 
     //astronaut model inladen
-    loader.load("./models/model.json",
+    loader.load("../models/model.json",
         function (obj) {
             obj.position.y += -2;
             obj.rotation.x += -1.5;
@@ -102,7 +102,7 @@ function AstronautEnvironment(scene,camera) {
     );
 
     //mountain environment model inladen
-    loader.load("./models/tall-mountains.json",
+    loader.load("../models/tall-mountains.json",
         function (obj) {
             obj.position.y += -6;
             obj.rotation.y += -1;

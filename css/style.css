@@ -5,12 +5,8 @@
 body {
 	font-size: 16dppx;
 	margin: 0;
-	background-image:
-    radial-gradient(
-	  blueviolet,
-      #08093E
-    );
-	font-family: 'Barlow', sans-serif;
+    font-family: 'Helvetica', sans-serif;
+    overflow:hidden;
 }
 
 .hide {
@@ -24,6 +20,35 @@ body {
 canvas {
 	width: 100vw;
 	height: 100vh;
+}
+
+h1{
+    font-size: 7.2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+}
+
+.load_screen{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background: #08093E;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.loading{
+    background: #08093E;
+    color:white;
+    text-align: center;
 }
 
 #message {
@@ -42,7 +67,72 @@ canvas {
     opacity: 0.0;
 }
 
+.hide{
+    display: none;
+}
+
 .instructions {
+    width: 100%;
+    height: 100%;
+    
+    position: absolute;
+    overflow: hidden;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transition: opacity 0.3s linear;
+
+    color: white; 
+    z-index :1; 
+}
+
+.mountainImg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.moonImg{
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    bottom: 0;
+}
+
+.introImages{
+    display:flex;
+    flex-direction: column;
+}
+
+.intro{
+    text-align: center;
+    margin-top: 0;
+    line-height: 1.5rem;
+}
+
+.homeButtons{
+    display:flex;
+    justify-content: space-around;
+
+    width: 25rem;
+}
+
+.homeButton {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 1rem;
+    margin: 1rem;
+    width: 14.5rem;
+}
+
+.scene1 {
     width: 100%;
     height: 100%;
     
@@ -56,7 +146,28 @@ canvas {
     justify-content: center;
     
     background: rgb(54, 25, 25);
-    background: rgba(138,43,226, 0.9);
+    background: rgba(138,43,226, 1);
+
+    transition: opacity 0.3s linear;
+
+    color: white;   
+}
+
+.scene2 {
+    width: 100%;
+    height: 100%;
+    
+    position: absolute;
+    overflow: hidden;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    background: rgb(54, 25, 25);
+    background: rgba(138,43,226, 1);
 
     transition: opacity 0.3s linear;
 
@@ -105,6 +216,83 @@ canvas {
     color:white;   
 }
 
+.skip {
+    position: absolute;
+}
+
+.space {
+    z-index: -3;
+    background-color: #2F1C58;
+}
+
+#space,
+.stars {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.stars {
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0, 0, 0, 0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: zoom 5s infinite;
+  opacity: 0;
+}
+
+.stars:nth-child(1) {
+  background-position: 50% 50%;
+  animation-delay: 0s;
+}
+
+.stars:nth-child(2) {
+  background-position: 20% 60%;
+  animation-delay: 1s;
+}
+
+.stars:nth-child(3) {
+  background-position: -20% -30%;
+  animation-delay: 2s;
+}
+
+.stars:nth-child(4) {
+  background-position: 40% -80%;
+  animation-delay: 3s;
+}
+
+.stars:nth-child(5) {
+  background-position: -20% 30%;
+  animation-delay: 4s;
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    animation-timing-function: ease-in;
+  }
+
+  85% {
+    opacity: 1;
+    transform: scale(2.8);
+    animation-timing-function: linear;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(3.5);
+  }
+}
+
 .decibelMeter {
     width: 100%;
     height: 100%;
@@ -121,4 +309,5 @@ canvas {
     transition: opacity 0.3s linear;
 
     color:white;   
+
 }
