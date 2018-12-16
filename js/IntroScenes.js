@@ -1,25 +1,26 @@
-const scene1 = document.getElementById("scene1");
-const button1 = document.getElementById("button1");
-
-const scene2 = document.getElementById("scene2");
-const button2 = document.getElementById("button2");
-
+const scene = document.getElementById("scene");
 const skip = document.getElementById("skip");
-const start = document.getElementById("start");
 
-button1.addEventListener("click", function(){
-    scene1.remove();
-});
-
-button2.addEventListener("click", function(){
-    scene2.remove();
-});
-
-skip.addEventListener("click", function(){
-    scene1.remove();
-    scene2.remove();
-});
-
-start.addEventListener("click", function(){
+skip.addEventListener("click", function () {
     skip.remove();
 });
+
+let myScenes = ['../assets/img/scene1.png','../assets/img/scene3.png'];
+const totalScenes = myScenes.length;
+let imageIndex = 0;
+
+let changeScene = () => {
+    scene.setAttribute("src", myScenes[imageIndex]);
+
+    imageIndex++;
+    console.log(imageIndex);
+
+    if (imageIndex > totalScenes) {
+        imageIndex = 1;
+    };
+}
+
+    setTimeout(() => {
+        changeScene();
+        console.log("In the timer");
+    }, 1500);

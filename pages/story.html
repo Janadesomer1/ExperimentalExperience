@@ -12,28 +12,20 @@
 <body>
   <!-- Music -->
   <audio autoplay>
-    <source src="assets/music/Storyline_final.ogg" loop=false style="display:none;" type="audio/ogg">
-    <source src="assets/music/Storyline_final.mp3" loop=false style="display:none;" autoplay type="audio/mpeg">
+    <source src="../assets/music/Storyline_final.ogg" loop=false style="display:none;" type="audio/ogg">
+    <source src="../assets/music/Storyline_final.mp3" loop=false style="display:none;" autoplay type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
   <!-- Scenes -->
-  <!-- Scene2: Rakket -->
-  <div class="scene2" id="scene2">
-    <p>Scene2</p>
-    <a href="../index.html" class="next2" id="button2">Next</a>
-  </div>
+  <div class="scenes">
+    <img class="scene" id="scene" width="1000" height="1000" src="../assets/img/scene1.png" alt="scene">
+    </div>
 
-  <!-- Scene1: Huis -->
-  <div class="scene1" id="scene1">
-    <p>scene1</p>
-    <button class="next1" id="button1" type="button">Next</button>
+    <!-- Skip scene 1, 2 and 3 -->
+    <a class="skip" id="skip" href="../index.html">Skip</a>
   </div>
-
-  <!-- Skip scene 1, 2 and 3 -->
-  <a class="skip" id="skip" href="../index.html">Skip</a>
 
   <script src="../js/IntroScenes.js"></script>
 </body>
-
 </html>
