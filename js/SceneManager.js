@@ -105,4 +105,7 @@ function SceneManager(canvas) {
     this.introScreenClosed = function() {
         eventBus.post(introScreenClosed)
     }
+    this.update = function (time) {
+		
+    }
 }

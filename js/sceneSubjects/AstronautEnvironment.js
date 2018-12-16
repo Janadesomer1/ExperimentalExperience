@@ -18,6 +18,8 @@
 function AstronautEnvironment(scene,camera) {
 
     const decibelMeter = document.getElementById("decibelMeter");
+	const end = document.getElementById("end");
+	let average; 
 
 	//get Microphone
 	navigator.getUserMedia = navigator.getUserMedia ||
@@ -36,7 +38,7 @@ function AstronautEnvironment(scene,camera) {
 			microphone = audioContext.createMediaStreamSource(stream);
 			javascriptNode = audioContext.createScriptProcessor(2048, 1, 1);
 	  
-			analyser.smoothingTimeConstant = 0.8;
+			//analyser.smoothingTimeConstant = 0.8;
 			analyser.fftSize = 1024;
 	  
 			microphone.connect(analyser);
@@ -54,10 +56,13 @@ function AstronautEnvironment(scene,camera) {
 				for (let i = 0; i < length; i++) {
 				  values += (array[i]);
 				}
-	  
-				let average = values / length;
-
-				update(average,camera);
+				
+				average = values / length;
+				
+				
+omhoog();
+				
+				
 			  }
 		  },
 		  function(err) {
@@ -92,16 +97,17 @@ function AstronautEnvironment(scene,camera) {
     );
 
 
-    const update = (average) => {
-		
+    const omhoog = () => {
 		if(average > 10){
 			mesh.position.y += 0.30;
-			if(average < 10){
+				console.log("average is bigger");
 				decibelMeter.innerText = Math.round(mesh.position.y) + " " + "total miles travelled";
-			}
-		}else {
+			} else if(average <10){
 			mesh.position.y -= 1;
 			mesh.position.set(0, 0, 0);
+			
+			end.classList.remove('hide');
+			end.classList.add('ended');
         }
 
         decibelMeter.innerText = Math.round(mesh.position.y) + " " + "miles travelled";
