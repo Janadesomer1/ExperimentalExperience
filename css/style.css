@@ -13,13 +13,13 @@ body {
     display: none;
 }
 
-.ended {
+/* .ended {
     display: inherit;
     background: blue;
     position: absolute;
     width: 100%;
     height: 100%;
-}
+} */
 
 .show {
     display: flex;

@@ -18,8 +18,6 @@
 function AstronautEnvironment(scene,camera) {
 
     const decibelMeter = document.getElementById("decibelMeter");
-	const end = document.getElementById("end");
-	let average; 
 
 	//get Microphone
 	navigator.getUserMedia = navigator.getUserMedia ||
@@ -32,13 +30,13 @@ function AstronautEnvironment(scene,camera) {
 		  },
 	  
 		  function(stream,camera) {
-			console.log("Audio works");
+			console.log("Uw audio komt erin! Is it a 10/20?");
 			audioContext = new AudioContext();
 			analyser = audioContext.createAnalyser();
 			microphone = audioContext.createMediaStreamSource(stream);
 			javascriptNode = audioContext.createScriptProcessor(2048, 1, 1);
 	  
-			//analyser.smoothingTimeConstant = 0.8;
+			analyser.smoothingTimeConstant = 0.8;
 			analyser.fftSize = 1024;
 	  
 			microphone.connect(analyser);
@@ -56,13 +54,10 @@ function AstronautEnvironment(scene,camera) {
 				for (let i = 0; i < length; i++) {
 				  values += (array[i]);
 				}
-				
-				average = values / length;
-				
-				
-omhoog();
-				
-				
+	  
+				let average = values / length;
+
+				update(average,camera);
 			  }
 		  },
 		  function(err) {
@@ -71,7 +66,8 @@ omhoog();
 	  } else {
 		console.log("getUserMedia werkt ier nie!");
 	  }
-
+      
+      
     const loader = new THREE.ObjectLoader();
     const mesh = new THREE.Object3D();
     this.mesh = mesh;
@@ -97,20 +93,15 @@ omhoog();
     );
 
 
-    const omhoog = () => {
+    const update = (average) => {
+		decibelMeter.innerText = "Say -aaa- as long as possible";
 		if(average > 10){
+			decibelMeter.innerText = Math.round(mesh.position.y) + " " + "miles travelled";
 			mesh.position.y += 0.30;
-				console.log("average is bigger");
-				decibelMeter.innerText = Math.round(mesh.position.y) + " " + "total miles travelled";
-			} else if(average <10){
+		}else {
 			mesh.position.y -= 1;
 			mesh.position.set(0, 0, 0);
-			
-			end.classList.remove('hide');
-			end.classList.add('ended');
-        }
-
-        decibelMeter.innerText = Math.round(mesh.position.y) + " " + "miles travelled";
+		}
 	}
 
     this.update = function (time) {

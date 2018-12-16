@@ -62,9 +62,7 @@ function SceneManager(canvas) {
     function createSceneSubjects(scene,camera) {
 
         let astronautEnvironment = new AstronautEnvironment(scene);
-        
         scene.add(astronautEnvironment.mesh);
-
         const sceneSubjects = [
             astronautEnvironment,
             new Particles(scene),
@@ -104,8 +102,5 @@ function SceneManager(canvas) {
 
     this.introScreenClosed = function() {
         eventBus.post(introScreenClosed)
-    }
-    this.update = function (time) {
-		
     }
 }
