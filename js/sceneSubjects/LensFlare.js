@@ -4,8 +4,8 @@ function LensFlare(scene) {
 
     // lensflares
     var textureLoader = new THREE.TextureLoader();
-    var textureFlare0 = textureLoader.load( 'textures/lensflare0.png' );
-    var textureFlare3 = textureLoader.load( 'textures/lensflare3.png' );
+    var textureFlare0 = textureLoader.load( '../textures/lensflare0.png' );
+    var textureFlare3 = textureLoader.load( '../textures/lensflare3.png' );
 
     //addLight( 0.55, 0.9, 0.5, 5000, 0, - 1000 );
     addLight( 0.08, 0.8, 0.5, 0, 0, - 1000 );

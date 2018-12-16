@@ -24,7 +24,7 @@ function Particles(scene, gameConstants) {
     }
 
     const textureLoader = new THREE.TextureLoader();
-	const texture = textureLoader.load("textures/particle.png");
+	const texture = textureLoader.load("../textures/particle.png");
 
 	const particleMaterial = new THREE.PointsMaterial({ map: texture, color: "#fff", size: .15, blending: THREE.AdditiveBlending, transparent: true, opacity: 0.7, alphaTest: 0.25 });
     const particlePointsCloud = new THREE.Points(particlesGeometry, particleMaterial);

@@ -3,7 +3,7 @@ function AstronautEnvironment(scene) {
     const loader = new THREE.ObjectLoader();
 
     //astronaut model inladen
-    loader.load("./models/model.json",
+    loader.load("../models/model.json",
         function (obj) {
             obj.position.y += -2;
             obj.rotation.x += -1.5;
@@ -13,7 +13,7 @@ function AstronautEnvironment(scene) {
     );
 
     //mountain environment model inladen
-    loader.load("./models/tall-mountains.json",
+    loader.load("../models/tall-mountains.json",
         function (obj) {
             obj.position.y += -6;
             obj.rotation.y += -1;
