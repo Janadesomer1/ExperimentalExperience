@@ -1,32 +1,27 @@
 const scene = document.getElementById("scene");
 const skip = document.getElementById("skip");
+const aud = document.getElementById("myAudio1");
+const audio2 = document.createElement('audio');
 
 skip.addEventListener("click", function () {
     skip.remove();
 });
 
-let myScenes = ['../assets/img/scene1.png','../assets/img/scene3.png'];
-const totalScenes = myScenes.length;
-let imageIndex = 0;
-
-const aud = document.getElementsByClassName("myAudio").onended = onended;
-
-const ended = () => {
-    console.log("facking ended");
+// CHANGE SCENE AFTER DONE
+const handleEnded = () => {
+    console.log("scene1 ended");
+    scene.src = "../assets/img/scene2.png";
+    
+    audio2.src = '../assets/music/bleep.mp3';
+    audio2.play();
+    audio2.addEventListener('ended',handleEnded2);
 };
 
-let changeScene = () => {
-    scene.setAttribute("src", myScenes[imageIndex]);
+const handleEnded2 = () => {
+    console.log("scene2 ended");
+    scene.src = "../assets/img/scene3.png";
+    audio2.src = '../assets/music/Storyline_final.mp3'
+    audio2.play();
+};
 
-    imageIndex++;
-    console.log(imageIndex);
-
-    if (imageIndex > totalScenes) {
-        imageIndex = 1;
-    };
-}
-
-    setTimeout(() => {
-        changeScene();
-        console.log("In the timer");
-    }, 1500);
+aud.addEventListener('ended', handleEnded);
