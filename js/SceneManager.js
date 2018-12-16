@@ -12,6 +12,7 @@ function SceneManager(canvas) {
     const camera = buildCamera(screenDimensions);
     const controls = buildControls();
     const sceneSubjects = createSceneSubjects(scene,camera);
+    //const composer = buildProcessor();
 
 
     function buildScene() {
@@ -74,6 +75,14 @@ function SceneManager(canvas) {
         return sceneSubjects;
     }
 
+    // function buildProcessor(renderer,camera,scene) {
+    //     const composer = new THREE.EffectComposer(renderer);
+    //     const renderPass = new THREE.RenderPass(scene,camera);
+    //     composer.addPass(renderPass);
+    //     renderPass.renderToScreen = true;
+    //     return composer;
+    // }
+
     this.update = function () {
 
         let speed = Date.now() * 0.0005;
@@ -89,6 +98,7 @@ function SceneManager(canvas) {
             sceneSubjects[i].update(elapsedTime);
 
         renderer.render(scene, camera);
+        //composer.render();
     }
 
     this.onWindowResize = function () {

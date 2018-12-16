@@ -65,7 +65,26 @@ function AstronautEnvironment(scene,camera) {
 		  });
 	  } else {
 		console.log("getUserMedia werkt ier nie!");
-      }
+	  }
+	  
+
+	  // model
+	  let fbxloader = new THREE.FBXLoader();
+	  fbxloader.load( './models/Astronaut.fbx', function ( object ) {
+		  object.mixer = new THREE.AnimationMixer( object );
+		  mixers.push( object.mixer );
+		  var action = object.mixer.clipAction( object.animations[ 0 ] );
+		  action.play();
+		  object.traverse( function ( child ) {
+			  if ( child.isMesh ) {
+				  child.castShadow = true;
+				  child.receiveShadow = true;
+			  }
+		  } );
+		  scene.add( object );
+	  } );
+
+
       
       
     const loader = new THREE.ObjectLoader();
@@ -93,22 +112,22 @@ function AstronautEnvironment(scene,camera) {
     );
 
 
-    const update = (average,camera) => {
+    const update = (average) => {
+		
 		if(average > 10){
 			mesh.position.y += 0.30;
+			if(average < 10){
+				decibelMeter.innerText = Math.round(mesh.position.y) + " " + "total miles travelled";
+			}
 		}else {
 			mesh.position.y -= 1;
 			mesh.position.set(0, 0, 0);
         }
 
         decibelMeter.innerText = Math.round(mesh.position.y) + " " + "miles travelled";
-
-
-        
-
-
 	}
 
     this.update = function (time) {
+		
         }
 }

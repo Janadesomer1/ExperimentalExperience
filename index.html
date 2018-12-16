@@ -24,6 +24,14 @@
         </div>
     </div>
 
+    <!-- end-state -->
+    <!-- <div class="finished hide" id="finishedContainer">
+      <p>Good job, you travelled 110 miles into space!</p>
+        <div id="startButton" class="flexColumn start" onclick="endGame()">				
+            <span class="margin8">Go again</span>
+        </div>
+    </div> -->
+
   
     <canvas id="canvas" class="visualiser"></canvas>
 
@@ -33,6 +41,8 @@
 
 
   <script src="js/libs/LensFlare.js"></script>
+  <script src="js/libs/FBXLoader2.js"></script>
+  <script src="js/libs/inflate.min.js"></script>
   <script src="js/controls/OrbitControls.js"></script>
 
   <script src="js/sceneSubjects/Particles.js"></script>
@@ -43,6 +53,12 @@
   
   <script src="js/eventBus/EventBus.js"></script>
   <script src="js/eventBus/constants.js"></script>
+
+  <!-- post processing -->
+  <script src="js/libs/EffectComposer.js"></script>
+  <script src="js/libs/CopyShader.js"></script>
+  <script src="js/libs/RenderPass.js"></script>
+  <script src="js/libs/ShaderPass.js"></script>
 
   <script src="js/SceneManager.js"></script>
   <script src="js/DomUIManager.js"></script>
