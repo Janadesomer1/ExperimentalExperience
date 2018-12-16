@@ -9,6 +9,12 @@ let myScenes = ['../assets/img/scene1.png','../assets/img/scene3.png'];
 const totalScenes = myScenes.length;
 let imageIndex = 0;
 
+const aud = document.getElementsByClassName("myAudio").onended = onended;
+
+const ended = () => {
+    console.log("facking ended");
+};
+
 let changeScene = () => {
     scene.setAttribute("src", myScenes[imageIndex]);
 
