@@ -14,11 +14,11 @@ const bindEventListeners = () => {
 eventBus.subscribe(startCountDownFinishedEvent, analyticsSendGameStartEvent)
 
 function analyticsSendGameStartEvent() {
-	ga('send', {
+	'send', {
 		hitType: 'event',
 		eventCategory: 'gameplay',
 		eventAction: 'game started',
-	  });
+	  };
 }
 
 const resizeCanvas = () => {

@@ -1,6 +1,7 @@
 function DomUIManager() {
     const countDownContainer = document.getElementById("countDownContainer");
     const instructionsContainer = document.getElementById("instructionsContainer");
+    const finishedContainer = document.getElementById("finishedContainer");
     console.log("Welcome in the DOMUIManager");
 
     document.startGame = startGame;
@@ -19,6 +20,7 @@ function DomUIManager() {
         startTimeOut();
     }
 
+
     function startTimeOut() {
         setTimeout( () => countDownContainer.innerText = "3", 1000 );
         setTimeout( () => countDownContainer.innerText = "2", 2000 );
@@ -27,6 +29,7 @@ function DomUIManager() {
         setTimeout( () => { 
             countDownContainer.innerText = "0";
             eventBus.post(startCountDownFinishedEvent);
+            
         }, 4000 )
 
         setTimeout( () => {

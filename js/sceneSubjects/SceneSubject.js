@@ -1,4 +1,6 @@
-function SceneSubject(scene,camera,constraints) {
+function SceneSubject(scene,camera) {
+
+	const decibelMeter = document.getElementById("decibelMeter");
 
 	//get Microphone
 	navigator.getUserMedia = navigator.getUserMedia ||
@@ -11,7 +13,7 @@ function SceneSubject(scene,camera,constraints) {
 		  },
 	  
 		  function(stream,camera) {
-			console.log("Uw audio komt erin!");
+			console.log("Uw audio komt erin! Is it a 10/20?");
 			audioContext = new AudioContext();
 			analyser = audioContext.createAnalyser();
 			microphone = audioContext.createMediaStreamSource(stream);
@@ -27,25 +29,25 @@ function SceneSubject(scene,camera,constraints) {
 	  
 	  
 			javascriptNode.onaudioprocess = function(camera) {
-				var array = new Uint8Array(analyser.frequencyBinCount);
+				let array = new Uint8Array(analyser.frequencyBinCount);
 				analyser.getByteFrequencyData(array);
-				var values = 0;
+				let values = 0;
 	  
-				var length = array.length;
-				for (var i = 0; i < length; i++) {
+				let length = array.length;
+				for (let i = 0; i < length; i++) {
 				  values += (array[i]);
 				}
 	  
-				var average = values / length;
+				let average = values / length;
 
 				update(average,camera);
 			  }
 		  },
 		  function(err) {
-			console.log("The following error occured: " + err.name)
+			console.log("Ge hebt een foutje namelijk: " + err.name)
 		  });
 	  } else {
-		console.log("getUserMedia not supported");
+		console.log("getUserMedia werkt ier nie!");
 	  }
 
 
@@ -56,9 +58,15 @@ function SceneSubject(scene,camera,constraints) {
 	mesh.position.set(0, 0, -20);
 	scene.add(mesh);
 
-	const update = (average, camera) => {
-		const height =  average/10;
-		mesh.position.set(0, height, -20);
+	const update = (average,camera) => {
+		if(average > 10){
+			mesh.position.y += 0.30;
+			//camera.rotation.x += 1;
+		}else {
+			mesh.position.y -= 1;
+			mesh.position.set(0, 0, -20);
+		}
+		decibelMeter.innerText = Math.round(average) + " " + "miles travelled";
 		//mesh.position.y += average/100;
 		//camera.position.z = 8 + average;
 	}

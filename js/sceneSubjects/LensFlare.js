@@ -12,7 +12,7 @@ function LensFlare(scene) {
     addLight( 0.995, 0.5, 0.9, 5000, 5000, - 1000 );
 
     function addLight( h, s, l, x, y, z ) {
-        var light = new THREE.PointLight( 0xffffff, 1.5, 2000 );
+        let light = new THREE.PointLight( 0xffffff, 1.5, 2000 );
         light.color.setHSL( h, s, l );
         light.position.set( x, y, z );
         scene.add( light );

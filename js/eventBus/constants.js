@@ -8,3 +8,4 @@ const startBoost = "startBoost";
 
 const introScreenClosed = "introScreenClosed";
 const startCountDownFinishedEvent = "startCountDownFinishedEvent";
+const endScreenOpen = "endScreenOpen";
