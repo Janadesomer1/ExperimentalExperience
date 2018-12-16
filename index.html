@@ -6,11 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
+  <script>
+  WebFontConfig={google:{families:["Barlow"]}},function(s){var t=s.createElement("script"),a=s.scripts[0];t.src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js",t.async=!0,a.parentNode.insertBefore(t,a)}(document)
+  </script>
   <title>The Astmanaut</title>
 </head>
 
 <body>
+    <div class="decibelMeter" id="decibelMeter"></div>
     <div class="countDownContainer fade" id="countDownContainer"></div>
 
     <!-- Instructions -->
@@ -21,6 +24,14 @@
         </div>
     </div>
 
+    <!-- end-state -->
+    <!-- <div class="finished hide" id="finishedContainer">
+      <p>Good job, you travelled 110 miles into space!</p>
+        <div id="startButton" class="flexColumn start" onclick="endGame()">				
+            <span class="margin8">Go again</span>
+        </div>
+    </div> -->
+
   
     <canvas id="canvas" class="visualiser"></canvas>
 
@@ -30,6 +41,8 @@
 
 
   <script src="js/libs/LensFlare.js"></script>
+  <script src="js/libs/FBXLoader2.js"></script>
+  <script src="js/libs/inflate.min.js"></script>
   <script src="js/controls/OrbitControls.js"></script>
 
   <script src="js/sceneSubjects/Particles.js"></script>
@@ -37,10 +50,15 @@
   <script src="js/sceneSubjects/Lights.js"></script>
   <script src="js/sceneSubjects/AstronautEnvironment.js"></script>
   <script src="js/sceneSubjects/SceneSubject.js"></script>
-  <!-- <script src="js/progressState/ProgressStateManager.js"></script> -->
   
   <script src="js/eventBus/EventBus.js"></script>
   <script src="js/eventBus/constants.js"></script>
+
+  <!-- post processing -->
+  <script src="js/libs/EffectComposer.js"></script>
+  <script src="js/libs/CopyShader.js"></script>
+  <script src="js/libs/RenderPass.js"></script>
+  <script src="js/libs/ShaderPass.js"></script>
 
   <script src="js/SceneManager.js"></script>
   <script src="js/DomUIManager.js"></script>

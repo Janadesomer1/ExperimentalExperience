@@ -7,15 +7,13 @@ function SceneManager(canvas) {
         height: canvas.height
     }
 
-    //const progressStateManager = new ProgressStateManager()
-
     const scene = buildScene();
     const renderer = buildRender(screenDimensions);
     const camera = buildCamera(screenDimensions);
     const controls = buildControls();
-    const sceneSubjects = createSceneSubjects(scene);
+    const sceneSubjects = createSceneSubjects(scene,camera);
+    //const composer = buildProcessor();
 
-    //const progressEntitiesManager = new ProgressEntitiesManager(scene, progressStateManager.progressConstants, progressStateManager.progressState)
 
     function buildScene() {
         const scene = new THREE.Scene();
@@ -62,9 +60,14 @@ function SceneManager(canvas) {
     }
 
     function createSceneSubjects(scene,camera,progressConstants) {
+
+        let astronautEnvironment = new AstronautEnvironment(scene);
+        
+        scene.add(astronautEnvironment.mesh);
+
         const sceneSubjects = [
-            new SceneSubject(scene,camera,progressConstants),
-            new AstronautEnvironment(scene),
+            //new SceneSubject(scene,camera,progressConstants),
+            astronautEnvironment,
             new Particles(scene),
             new Lights(scene),
             new LensFlare(scene),
@@ -72,18 +75,30 @@ function SceneManager(canvas) {
         return sceneSubjects;
     }
 
+    // function buildProcessor(renderer,camera,scene) {
+    //     const composer = new THREE.EffectComposer(renderer);
+    //     const renderPass = new THREE.RenderPass(scene,camera);
+    //     composer.addPass(renderPass);
+    //     renderPass.renderToScreen = true;
+    //     return composer;
+    // }
+
     this.update = function () {
-        //camera.position.x += 1;
+
+        let speed = Date.now() * 0.0005;
+        camera.position.x = Math.cos(speed) * 10;
+        camera.position.z = Math.sin(speed) * 10;
+      
+        camera.lookAt(scene.position); //0,0,0
+        
         controls.update();
         const elapsedTime = clock.getElapsedTime();
 
         for (let i = 0; i < sceneSubjects.length; i++)
             sceneSubjects[i].update(elapsedTime);
 
-            // progressStateManager.update(elapsedTime)
-            // progressEntitiesManager.update(elapsedTime)
-
         renderer.render(scene, camera);
+        //composer.render();
     }
 
     this.onWindowResize = function () {

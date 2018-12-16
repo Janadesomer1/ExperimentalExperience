@@ -22,13 +22,14 @@ function ProgressStateManager() {
         // score: 0,
 
         // playerHasMoved: false,
-        enableUserInput: false
+        enableUserInput: false,
+        marshallHeight: 0
     }
 
     eventBus.subscribe( introScreenClosed, () => this.gameState.enableUserInput = true )
-    // eventBus.subscribe( startCountDownFinishedEvent, () => {
-    //     this.gameConstants.speedStep = 0.0000008;
-    // } )
+    eventBus.subscribe( startCountDownFinishedEvent, () => {
+        this.gameConstants.speedStep = 0.0000008;
+    } )
 
     eventBus.subscribe(gameOverEvent, () => {
         // this.gameState.playerHeightLevel = 0        
