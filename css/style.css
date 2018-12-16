@@ -90,6 +90,28 @@ h1{
     z-index :1; 
 }
 
+.alert-text {
+    color: white;
+    font-size: 1rem;
+    padding-left: 1rem;
+}
+
+.flex2 {
+    padding-bottom: 1rem;
+    position: absolute;
+    bottom: 0;
+    margin-left: 1rem;
+    width: 3rem;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
 .mountainImg{
     position: absolute;
     width: 100%;
