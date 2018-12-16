@@ -67,7 +67,6 @@ function SceneManager(canvas) {
         scene.add(astronautEnvironment.mesh);
 
         const sceneSubjects = [
-            //new SceneSubject(scene,camera,progressConstants),
             astronautEnvironment,
             new Particles(scene),
             new Lights(scene),
