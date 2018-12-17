@@ -14,7 +14,7 @@ bleep.src = "../assets/music/bleep.mp3";
 
 const handleHoverSound = () => {
     bleep.play();
-    console.log("Uwe button word gehovered");
+    console.log("Uwe button wordt gehovered");
 };
 skipButton.addEventListener("mouseenter",handleHoverSound);
 
@@ -34,7 +34,6 @@ const handleEnded2 = () => {
     scene.classList.remove("spin");
     console.log("scene2 ended");
     scene.src = "../assets/img/scene3.png";
-    scene.classList.add("spin");
 
     audio3.src = '../assets/music/marshall3.mp3';
     audio3.play();
