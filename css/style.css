@@ -161,19 +161,18 @@ h1{
 }
 
 .homeButton {
-    color: #7430C3;
+    color: white;
     text-align: center;
     text-decoration: none;
     border: 1px solid white;
     padding: 1rem;
     margin: 1rem;
     width: 14.5rem;
-    background-color: white;
 }
 
 .homeButton:hover {
     background-color: white;
-    color: black;
+    color: #7430C3;
     text-align: center;
     text-decoration: none;
     border: 1px solid white;
