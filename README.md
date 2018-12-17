@@ -3,7 +3,7 @@
 ## Storyline
 Astronaut Marshall takes you back to his own childhood. Everybody always told him he
 was never going to be an astronaut because he suffers from astma. But he proved
-everyone wrong and now he want to encourange anyone else suffering from astma to never
+everyone wrong and now he want to encourage anyone else suffering from astma to never
 let go of their dream, no matter how impossible it may seem.
 
 ## Goal of this experience
@@ -30,3 +30,11 @@ https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode
 ## Use of following technologies
 * WebGL + three.js
 * HTML5 WebAudio
+
+## Why
+This experimental experience was a final assignment of our "experimental web" course at college.
+
+## Minimum Required Browser
+* This is a desktop based website, nothing was optimized for mobile yet
+* We recommend you use the latest version of Chrome or Firefox, good audio support is      very important
+* Chrome version 71 as of now
