@@ -1,25 +1,61 @@
-const scene1 = document.getElementById("scene1");
-const button1 = document.getElementById("button1");
+const scene = document.getElementById("scene");
+//const skip = document.getElementById("skip");
+const aud = document.getElementById("myAudio1");
 
-const scene2 = document.getElementById("scene2");
-const button2 = document.getElementById("button2");
+const audio2 = document.createElement('audio');
+const audio3 = document.createElement('audio');
+const audio4 = document.createElement('audio');
+const experience = document.createElement('a');
 
-const skip = document.getElementById("skip");
-const start = document.getElementById("start");
+const skipButton = document.getElementById("skip");
 
-button1.addEventListener("click", function(){
-    scene1.remove();
-});
+const bleep = new Audio();
+bleep.src = "../assets/music/bleep.mp3";
 
-button2.addEventListener("click", function(){
-    scene2.remove();
-});
+const handleHoverSound = () => {
+    bleep.play();
+    console.log("Uwe button word gehovered");
+};
+skipButton.addEventListener("mouseenter",handleHoverSound);
 
-skip.addEventListener("click", function(){
-    scene1.remove();
-    scene2.remove();
-});
 
-start.addEventListener("click", function(){
-    skip.remove();
-});
+// CHANGE SCENE AFTER DONE
+const handleEnded = () => {
+    console.log("scene1 ended");
+    scene.src = "../assets/img/scene2.png";
+    scene.classList.add("spin");
+
+    audio2.src = '../assets/music/marshall2.mp3';
+    audio2.play();
+    audio2.addEventListener('ended',handleEnded2);
+};
+
+const handleEnded2 = () => {
+    scene.classList.remove("spin");
+    console.log("scene2 ended");
+    scene.src = "../assets/img/scene3.png";
+    scene.classList.add("spin");
+
+    audio3.src = '../assets/music/marshall3.mp3';
+    audio3.play();
+    audio3.addEventListener('ended',handleEnded3);
+};
+
+const handleEnded3 = () => {
+    scene.classList.add("spin");
+    console.log("scene3 ended = laatste scene");
+    scene.src = "../assets/img/scene4.png";
+
+    audio4.src = '../assets/music/marshall4.mp3'
+    audio4.play();
+    audio4.addEventListener('ended',handleEnded4);
+};
+
+const handleEnded4 = () => {
+    scene.classList.remove("spin");
+    experience.href = "game.html";
+    experience.title = "start experience";
+    experience.classList.add("experience");
+};
+
+aud.addEventListener('ended', handleEnded);
