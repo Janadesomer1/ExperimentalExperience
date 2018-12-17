@@ -6,10 +6,6 @@ function Lights(scene) {
 	scene.add( spotLight );
 	scene.add( spotLight.target );
 
-	// const pointLight = new THREE.PointLight( "#000000", 1, 400 );
-	// pointLight.position.set( 0, 10, 0 );
-	// scene.add( pointLight );
-
 	//daglicht, in ons geval, nacht light
 	const directionalLight = new THREE.DirectionalLight( "#551A8B", 1 );
 	scene.add( directionalLight );

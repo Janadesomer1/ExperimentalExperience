@@ -1,7 +1,6 @@
-function Particles(scene, gameConstants) {
+function Particles(scene) {
     
     const particlesGeometry = new THREE.Geometry();
-    //const range = gameConstants.maxRadius*2;
     
     for (let i = 0; i < 1500; i++) {        
         const vertex = new THREE.Vector3();
