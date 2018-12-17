@@ -13,7 +13,6 @@ skip.addEventListener("click", function () {
 
 // CHANGE SCENE AFTER DONE
 const handleEnded = () => {
-    
     console.log("scene1 ended");
     scene.src = "../assets/img/scene2.png";
     scene.classList.add("spin");
@@ -37,7 +36,6 @@ const handleEnded3 = () => {
     scene.classList.add("spin");
     console.log("scene3 ended = laatste scene");
     scene.src = "../assets/img/scene4.png";
-    scene.classList.add("spin");
 
     audio4.src = '../assets/music/marshall4.mp3'
     audio4.play();
@@ -45,6 +43,7 @@ const handleEnded3 = () => {
 };
 
 const handleEnded4 = () => {
+    scene.classList.remove("spin");
     experience.href = "game.html";
     experience.title = "start experience";
     experience.classList.add("experience");
