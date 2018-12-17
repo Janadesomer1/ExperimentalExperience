@@ -15,13 +15,6 @@ function ProgressStateManager() {
     // }
 
     this.gameState = {
-        // playerPosition: new THREE.Vector3(0, 0, 0),
-        // playerHeightLevel: 0, // 0 or 1
-
-        // lives: maxLives,
-        // score: 0,
-
-        // playerHasMoved: false,
         enableUserInput: false,
         marshallHeight: 0
     }
@@ -32,12 +25,8 @@ function ProgressStateManager() {
     } )
 
     eventBus.subscribe(gameOverEvent, () => {
-        // this.gameState.playerHeightLevel = 0        
-        // this.gameState.lives = maxLives
-        // this.gameState.score = 0
+        this.gameState.playerHeightLevel = 0        
         this.gameState.enableUserInput = false
-
-        // this.gameConstants.speedStep = 0
     })
 
     this.update = function(time) {

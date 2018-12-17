@@ -12,7 +12,6 @@ function SceneManager(canvas) {
     const camera = buildCamera(screenDimensions);
     const controls = buildControls();
     const sceneSubjects = createSceneSubjects(scene,camera);
-    //const composer = buildProcessor();
 
 
     function buildScene() {
@@ -60,7 +59,7 @@ function SceneManager(canvas) {
         return controls;
     }
 
-    function createSceneSubjects(scene,camera,progressConstants) {
+    function createSceneSubjects(scene,camera) {
 
         let astronautEnvironment = new AstronautEnvironment(scene);
         
@@ -74,15 +73,6 @@ function SceneManager(canvas) {
         ];
         return sceneSubjects;
     }
-
-    // function buildProcessor(renderer,camera,scene) {
-    //     const composer = new THREE.EffectComposer(renderer);
-    //     const renderPass = new THREE.RenderPass(scene,camera);
-    //     composer.addPass(renderPass);
-    //     renderPass.renderToScreen = true;
-    //     return composer;
-    // }
-
     this.update = function () {
 
         let speed = Date.now() * 0.0005;
@@ -98,7 +88,6 @@ function SceneManager(canvas) {
             sceneSubjects[i].update(elapsedTime);
 
         renderer.render(scene, camera);
-        //composer.render();
     }
 
     this.onWindowResize = function () {
@@ -111,7 +100,6 @@ function SceneManager(canvas) {
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
         renderer.setSize(width, height);
-        //composer.setSize(width, height);
     }
 
     this.introScreenClosed = function() {

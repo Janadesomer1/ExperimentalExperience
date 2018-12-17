@@ -30,7 +30,7 @@ function AstronautEnvironment(scene,camera) {
 		  },
 	  
 		  function(stream,camera) {
-			console.log("Uw audio komt erin! Is it a 10/20?");
+			console.log("Audio works");
 			audioContext = new AudioContext();
 			analyser = audioContext.createAnalyser();
 			microphone = audioContext.createMediaStreamSource(stream);
@@ -66,9 +66,7 @@ function AstronautEnvironment(scene,camera) {
 	  } else {
 		console.log("getUserMedia werkt ier nie!");
 	  }
-	
-      
-      
+
     const loader = new THREE.ObjectLoader();
     const mesh = new THREE.Object3D();
     this.mesh = mesh;
