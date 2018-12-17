@@ -202,8 +202,7 @@ h1{
     border: 1px solid white;
     padding: 1rem;
     margin: 1rem;
-    width: 14.5rem;
-    margin-left: 33rem;
+    width: 10rem;
 }
 
 .backButton:hover {
@@ -214,10 +213,6 @@ h1{
     text-align: center;
     text-decoration: none;
     border: 1px solid white;
-    padding: 1rem;
-    margin: 1rem;
-    width: 14.5rem;
-    margin-left: 33rem;
 }
 
 .skipButton:hover {
@@ -230,7 +225,6 @@ h1{
     border: 1px solid white;
     padding: 1rem;
     margin: 1rem;
-    width: 14.5rem;
 }
 
 .frame {
