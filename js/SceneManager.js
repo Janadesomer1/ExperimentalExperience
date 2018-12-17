@@ -61,10 +61,8 @@ function SceneManager(canvas) {
 
     function createSceneSubjects(scene,camera) {
 
-        let astronautEnvironment = new AstronautEnvironment(scene);
-        
+        let astronautEnvironment = new AstronautEnvironment(scene,camera, renderer.domElement);
         scene.add(astronautEnvironment.mesh);
-
         const sceneSubjects = [
             astronautEnvironment,
             new Particles(scene),

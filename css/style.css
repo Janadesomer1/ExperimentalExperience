@@ -13,8 +13,20 @@ body {
     display: none;
 }
 
+/* .ended {
+    display: inherit;
+    background: blue;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+} */
+
 .show {
     display: flex;
+}
+
+.title-head{
+    font-family: yeager;
 }
 
 canvas {
@@ -343,6 +355,7 @@ h1{
 }
 
 .decibelMeter {
+    font-family: yeager;
     width: 100%;
     height: 100%;
     
@@ -351,13 +364,37 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin-top: 15rem;
 
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 700;
 
     transition: opacity 0.3s linear;
 
     color:white;   
+}
+
+.decibelMeterVisual {
+    width: 20px;
+    height: 10px;
+    
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+
+    transition: opacity 0.3s linear;
+
+
+    color:white;  
+    background-color: white; 
+}
 
 }
 
@@ -371,3 +408,4 @@ h1{
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
