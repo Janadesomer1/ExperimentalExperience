@@ -16,28 +16,35 @@
 </head>
 
 <body>
+  <!-- Stars-->
+  <div id="space2" class="space2">
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+  </div>
+
+  </div>
   <!-- Music -->
-  <audio autoplay>
-    <source src="assets/music/Storyline_final.ogg" loop=false style="display:none;" type="audio/ogg">
-    <source src="assets/music/Storyline_final.mp3" loop=false style="display:none;" autoplay type="audio/mpeg">
+  <audio id="myAudio1" autoplay>
+    <source class="myAudio" src="../assets/music/marshall1.mp3"  style="display:none;" autoplay type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
   <!-- Scenes -->
-  <!-- Scene2: Rakket -->
-  <div class="scene2" id="scene2">
-    <p>Scene2</p>
-    <a href="../index.html" class="next2" id="button2">Next</a>
+  <a class="skipButton" href="game.html" id="skip">START EXPERIENCE</a>
+  <div class="frame" id="frame">
+      <img class="house" id="scene" width="1000" height="1000" src="../assets/img/scene1.png" alt="scene">
+    <div class="moonbase">
+      <img class="moon" src="../assets/img/moonBig.png" width="900" height="220" alt="moon">
+    </div>
   </div>
 
-  <!-- Scene1: Huis -->
-  <div class="scene1" id="scene1">
-    <p>scene1</p>
-    <button class="next1" id="button1" type="button">Next</button>
-  </div>
 
   <!-- Skip scene 1, 2 and 3 -->
   <a class="skip" id="skip" href="../index.html">Skip</a>
+  </div>
 
   <script src="../js/IntroScenes.js"></script>
 </body>
