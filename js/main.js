@@ -3,9 +3,6 @@ const sceneManager = new SceneManager(canvas);
 const domUIManager = new DomUIManager();
 const eventBus = new EventBus();
 
-
-//const eventBus = new EventBus()
-
 const bindEventListeners = () => {
 	window.onresize = resizeCanvas;
 	resizeCanvas();

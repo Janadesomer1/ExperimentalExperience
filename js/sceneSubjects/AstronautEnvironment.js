@@ -12,10 +12,12 @@
 //         }
 //     );
 //     }
-// }
+// } 
+
+//I tried via module.exports onderaan maar kreeg dan fouten op de import :(
 
 
-function AstronautEnvironment(scene,camera) {
+function AstronautEnvironment(scene) {
 
 	const decibelMeter = document.getElementById("decibelMeter");
 	const decibelMeterVisual = document.getElementById("decibelMeterVisual")
@@ -30,18 +32,18 @@ function AstronautEnvironment(scene,camera) {
 			audio: true
 		  },
 	  
-		  function(stream,camera) {
+		  function(stream) {
 			console.log("Uw audio komt erin! Is it a 10/20?");
 			audioContext = new AudioContext();
-			analyser = audioContext.createAnalyser(camera);
-			microphone = audioContext.createMediaStreamSource(stream,camera);
+			analyser = audioContext.createAnalyser();
+			microphone = audioContext.createMediaStreamSource(stream);
 			javascriptNode = audioContext.createScriptProcessor(2048, 1, 1);
 	  
 			analyser.smoothingTimeConstant = 0.8;
 			analyser.fftSize = 1024;
 	  
-			microphone.connect(analyser,camera);
-			analyser.connect(javascriptNode,camera);
+			microphone.connect(analyser);
+			analyser.connect(javascriptNode);
 			javascriptNode.connect(audioContext.destination);
 
 	  
@@ -94,15 +96,10 @@ function AstronautEnvironment(scene,camera) {
     );
 
 
-    const update = (average,camera) => {
-		// camera.position.x = Math.cos(0.1) * 10;
-		// camera.position.z = Math.sin(0.1) * 10;
-		
+    const update = (average) => {
 		decibelMeter.innerText = "Say -aaa- as long as possible";
-		decibelMeterVisual.style.width = "0px";
+
 		if(average > 10){
-			// camera.position.x = Math.cos(0.1) * 10;
-		    // camera.position.z = Math.sin(0.1) * 10;
 			decibelMeter.innerText = Math.round(mesh.position.y)*100/100 + " " + "miles travelled with your lung capacity";
 			mesh.position.y += 0.04;
 		}else {
@@ -110,7 +107,6 @@ function AstronautEnvironment(scene,camera) {
 			if(mesh.position.y = 0){
 				mesh.position.set(0, 0, 0);
 			}
-			decibelMeterVisual.style.width = "0px";
 		}
 	}
 
