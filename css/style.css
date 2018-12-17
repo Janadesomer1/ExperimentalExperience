@@ -176,6 +176,12 @@ h1{
     margin-top: 5.5rem;   
 }
 
+.experience{
+    z-index: 2;
+    color: white;
+    position: absolute;
+}
+
 .moonbase{
     z-index:1;
     position: absolute;
