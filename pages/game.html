@@ -6,16 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon//favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon//favicon-16x16.png">
+  <link rel="manifest" href="../assets/favicon//site.webmanifest">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff"> 
   <title>The Astmanaut</title>
 </head>
 
 <body>
 
+  <!-- <div class="hide" id="end">
+    <p>Game is ended</p>
+  </div> -->
+
   <div class="countDownContainer fade" id="countDownContainer"></div>
-    <div class="decibelMeter" id="decibelMeter"></div>
-    <div class="countDownContainer fade" id="countDownContainer"></div>
+
+  <div class="decibelMeter" id="decibelMeter"></div>
+  <div class="decibelMeterVisual" id="decibelMeterVisual"></div>
+  <div class="countDownContainer fade" id="countDownContainer"></div>
 
   <canvas id="canvas" class="visualiser"></canvas>
+  <a class="homeButton2" href="../index.html">Take me back home</a>
 
   <script src="../js/libs/three.min.js"></script>
   <script src="../js/libs/math.js"></script>

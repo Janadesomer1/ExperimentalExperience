@@ -1,31 +1,40 @@
 # The Astmanaut
  
-## De verhaallijn
-Astronaut Marshall neemt de kinderen mee naar de tijd wanneer hij kind was. Iedereen in zijn klas zei dat hij het dat nooit zou kunnen worden, omdat hij astma heeft. Want het is namelijk belangrijk dat je grote inspanningen kan doen en een goed uithoudingsvermogen hebt in de ruimte.
+## Storyline
+Astronaut Marshall takes you back to his own childhood. Everybody always told him he
+was never going to be an astronaut because he suffers from astma. But he proved
+everyone wrong and now he want to encourage anyone else suffering from astma to never
+let go of their dream, no matter how impossible it may seem.
 
-Tijdens de wandeling zou astronaut Marshall routinewerkzaamheden moeten uitvoeren,wat werk aan kabels. Op een gegeven moment krijgt Marshall een astma aanval en ziet hij buiten adem te vallen. Hij vraagt de kinderen om hem te helpen.
+## Goal of this experience
+Our target group for this experience is for kids who suffer from astma. But ofcourse
+anyone who's interested can use this website. We created it because we wanted these kids
+to be able to practice their lung capacity in a playfull and fun way. Breathing out
+to the maximum capacity helps with getting more fresh air. And with this common exercise
+the diaphragm is used to an even better extend. 
 
-De kinderen moeten zo lang mogelijk AAAaaa zeggen. Hoe langer ze AAAAaaa zeggen, hoe verder ze in de ruimte geraken. En hoe meer zuurstof ze aan de astronaut geven.
-
-
-## Het doel van de experience
-Om kinderen op een speelse manier hun ademhaling laten testen en oefenen. 
-Wanneer de kinderen maximaal uitademen zorgt dit voor een betere luchtverversing. Met deze oefening wordt bovendien het middenrif extra opgerekt. Bij COPD ontstaat meestal een versterkte inademingsstand (hyperinflatie-stand) van de borstkas waardoor men vaak wat korter en oppervlakkig gaat ademhalen (minder goede luchtverversing). 
-
-### Research bronmateriaal
+### Research material
 https://www.flevoziekenhuis.nl/patientenfolders-download/fysiotherapie/3478-fysiotherapie-ademhalingsoefeningen/file
 
 https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode
 
-## Plan van aanpak
-1) Uitschrijven van een storyboard - Van start naar einde
-2) Nadenken over welke technologieën we zullen gebruiken 
+## Actionplan
+1) Writing of the storyboard - start to finish
+2) Brainstorm about technologies we'll be using
 3) Development setup
-4) Maken van de basisfunctionaliteiten
-5) Aanmaken van visuals
-6) The storyline maken om de het verhaal en het doel te schetsen. (met skip button)
+4) Making the MVP work
+5) Creating some epic visuals
+6) Making a skippeable story mode
 
 
-## Welke technologieën gebruiken we?
-* WebGL / three.js
-* WebAudio en/of webMidi
+## Use of following technologies
+* WebGL + three.js
+* HTML5 WebAudio
+
+## Why
+This experimental experience was a final assignment of our "experimental web" course at college.
+
+## Minimum Required Browser
+* This is a desktop based website, nothing was optimized for mobile yet
+* We recommend you use the latest version of Chrome or Firefox, good audio support is      very important
+* Chrome version 71 as of now

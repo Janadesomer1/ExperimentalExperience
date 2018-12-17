@@ -17,7 +17,8 @@
 
 function AstronautEnvironment(scene,camera) {
 
-    const decibelMeter = document.getElementById("decibelMeter");
+	const decibelMeter = document.getElementById("decibelMeter");
+	const decibelMeterVisual = document.getElementById("decibelMeterVisual")
 
 	//get Microphone
 	navigator.getUserMedia = navigator.getUserMedia ||
@@ -32,15 +33,15 @@ function AstronautEnvironment(scene,camera) {
 		  function(stream,camera) {
 			console.log("Uw audio komt erin! Is it a 10/20?");
 			audioContext = new AudioContext();
-			analyser = audioContext.createAnalyser();
-			microphone = audioContext.createMediaStreamSource(stream);
+			analyser = audioContext.createAnalyser(camera);
+			microphone = audioContext.createMediaStreamSource(stream,camera);
 			javascriptNode = audioContext.createScriptProcessor(2048, 1, 1);
 	  
 			analyser.smoothingTimeConstant = 0.8;
 			analyser.fftSize = 1024;
 	  
-			microphone.connect(analyser);
-			analyser.connect(javascriptNode);
+			microphone.connect(analyser,camera);
+			analyser.connect(javascriptNode,camera);
 			javascriptNode.connect(audioContext.destination);
 
 	  
@@ -66,7 +67,6 @@ function AstronautEnvironment(scene,camera) {
 	  } else {
 		console.log("getUserMedia werkt ier nie!");
 	  }
-	
       
       
     const loader = new THREE.ObjectLoader();
@@ -94,19 +94,24 @@ function AstronautEnvironment(scene,camera) {
     );
 
 
-    const update = (average) => {
+    const update = (average,camera) => {
+		// camera.position.x = Math.cos(0.1) * 10;
+		// camera.position.z = Math.sin(0.1) * 10;
 		
+		decibelMeter.innerText = "Say -aaa- as long as possible";
+		decibelMeterVisual.style.width = "0px";
 		if(average > 10){
-			mesh.position.y += 0.30;
-			if(average < 10){
-				decibelMeter.innerText = Math.round(mesh.position.y) + " " + "total miles travelled";
-			}
+			// camera.position.x = Math.cos(0.1) * 10;
+		    // camera.position.z = Math.sin(0.1) * 10;
+			decibelMeter.innerText = Math.round(mesh.position.y)*100/100 + " " + "miles travelled with your lung capacity";
+			mesh.position.y += 0.04;
 		}else {
-			mesh.position.y -= 1;
-			mesh.position.set(0, 0, 0);
-        }
-
-        decibelMeter.innerText = Math.round(mesh.position.y) + " " + "miles travelled";
+			mesh.position.y -= 0.03;
+			if(mesh.position.y = 0){
+				mesh.position.set(0, 0, 0);
+			}
+			decibelMeterVisual.style.width = "0px";
+		}
 	}
 
     this.update = function (time) {
