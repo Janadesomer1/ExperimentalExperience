@@ -34,6 +34,13 @@ https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode
 * WebGL + three.js
 * HTML5 WebAudio
 
+## Astronaut 3D Model
+Shoutout to Noah Ilbery for providing us with a cool 3d model of an astronaut.
+https://www.artstation.com/noah_ilbery
+
+All other visuals were created by ourselves.
+
+
 ## Why
 This experimental experience was a final assignment of our "experimental web" course at college.
 
